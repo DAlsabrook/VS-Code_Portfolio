@@ -2,6 +2,7 @@
   /* Colors from vs code */
   --color-background-dark: #181818;
   --color-background-light: #1f1f1f;
+  --color-background-border: #2b2b2b;
   --color-background-highlighted: #2a2d2e;
   --color-code-orange: #ce9178;
   --color-code-light-blue: #7cd6fe;
@@ -15,6 +16,22 @@
   --font-code: Consolas,
     'Courier New',
     monospace;
+}
+
+html {
+  background-color: var(--color-background-dark);
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
 }
 
 /* All decoration and behavior removed from anchors */
@@ -49,6 +66,9 @@ ol {
   /* Remove padding */
   margin: 0;
   /* Remove margin */
+  margin-left: 5px;
+  padding-left: 10px;
+  /* adujust these 2 to make the dropdown line centered */
 }
 
 li {
@@ -58,8 +78,255 @@ li {
   /* Remove margin */
 }
 
+/* Default/mobile styles
+==========================================
+==========================================*/
 .App {
   background-color: var(--color-background-dark);
   color: var(--color-white);
   font-weight: 200;
+  font-size: small;
+}
+
+/* TOP TITLE BAR */
+.titlebar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  height: 15px;
+  border-bottom: 1px solid var(--color-background-border);
+  background-color: var(--color-background-light);
+}
+
+.titlebar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.titlebar-vscode-logo {
+  width: 20px;
+  height: auto;
+}
+
+.titlebar-options {
+  display: none;
+}
+
+.titlebar-options>li {
+  padding: 5px;
+  cursor: default;
+}
+
+.titlebar-options>li:hover {
+background-color: var(--color-background-highlighted);
+border-radius: 5px;
+
+}
+
+.titlebar>p {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.browser-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90px;
+  height: 15px;
+  font-size: 1.1rem;
+  color: var(--color-text-darker-grey)
+}
+
+.browser-line {
+  margin-top: -11px;
+}
+
+.browser-x {
+  margin-top: -5px;
+}
+
+/* Main page content */
+.page-content {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  /* height minus titlebar and footer */
+  height: calc(100vh - 64px);
+}
+
+/* SIDERBAR */
+.side-bar,
+.explorer,
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  border-right: 1px solid var(--color-background-border);
+}
+
+.side-bar {
+  justify-content: space-between;
+  width: 40px;
+}
+
+.side-bar-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding-top: 15px;
+}
+
+.side-bar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* EXPLORER */
+.explorer {
+  width: 20%;
+  max-width: 150px;
+  min-width: 135px;
+  align-items: flex-start;
+}
+
+.explorer>p {
+  margin-top: 0;
+  padding: 10px;
+}
+
+.file-list-container {
+  margin-left: 5px;
+  font-size: .9rem;
+}
+
+.file-list {
+  border-left: 1px solid var(--color-background-border);
+}
+
+.explorer-files * {
+  margin-top: 5px;
+}
+
+.accordian {
+  cursor: pointer;
+}
+
+.lang-logo {
+  width: 15px;
+  margin-right: 5px;
+  margin-bottom: -2px;
+}
+
+/* MAIN CONTENT */
+.main-container {
+  width: 100%;
+}
+
+.files-tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+  border-bottom: 1px solid var(--color-background-border);
+  padding: 0;
+  margin: 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  /* For Firefox */
+  scrollbar-color: rgba(155, 155, 155, 0.7) transparent;
+  /* For Firefox */
+}
+
+/* For Chrome, Safari, and Opera */
+.files-tabs::-webkit-scrollbar {
+  width: 8px;
+}
+
+.files-tabs::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.files-tabs::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.7);
+  border-radius: 20px;
+  border: transparent;
+}
+.files-tabs>li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  border: 1px solid var(--color-background-border);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+/* FOOTER */
+
+.branch-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 15px;
+  width: 100vw;
+  border-top: 1px solid var(--color-background-border);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.branch-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 130px;
+  margin-left: 15px;
+}
+
+.branch-main,
+.branch-update,
+.notifications-container {
+  height: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.branch-main{
+  width: 50px;
+  justify-content: space-between;
+}
+
+.branch-update {
+  width: 60px;
+  justify-content: space-evenly;
+}
+
+.notifications-container {
+  margin-right: 15px;
+}
+
+/* Tablet/Laptop/Desktop styles
+==========================================
+==========================================*/
+@media (min-width: 768px) {
+  .titlebar-options {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 300px;
+      margin-left: 20px;
+    }
 }
