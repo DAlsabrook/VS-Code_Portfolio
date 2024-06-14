@@ -7,8 +7,9 @@
   --color-code-light-blue: #7cd6fe;
   --color-code-dark-blue: #569cd6;
   --color-code-green: #6a9955;
-  --color-text-light-grey: #9dc0cc;
+  --color-text-light-grey: #aac4cd;
   --color-text-darker-grey: #697681;
+  --color-white: #e8e7e7;
 
   /* Fonts */
   --font-code: Consolas,
@@ -16,7 +17,49 @@
     monospace;
 }
 
+/* All decoration and behavior removed from anchors */
+a {
+  text-decoration: none;
+  /* Remove underlines */
+  color: inherit;
+  /* Inherit color from parent */
+  cursor: pointer;
+  /* Change cursor to pointer on hover */
+}
+
+a:visited {
+  color: inherit;
+  /* Inherit color from parent, even after link is visited */
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  /* Remove underlines on hover/focus */
+  outline: none;
+  /* Remove outline on focus */
+}
+
+/* Remove all list styling */
+ul,
+ol {
+  list-style-type: none;
+  /* Remove bullet points or numbers */
+  padding: 0;
+  /* Remove padding */
+  margin: 0;
+  /* Remove margin */
+}
+
+li {
+  padding: 0;
+  /* Remove padding */
+  margin: 0;
+  /* Remove margin */
+}
+
 .App {
   background-color: var(--color-background-dark);
-  color: var(--color-text-light-grey);
+  color: var(--color-white);
+  font-weight: 200;
 }
