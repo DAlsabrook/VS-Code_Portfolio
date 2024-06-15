@@ -1,5 +1,4 @@
-import '../styles/mobile/mobile-resume.css';
-import '../styles/computer/comp-resume.css';
+import '../styles/resume.css';
 
 function Resume() {
   return (

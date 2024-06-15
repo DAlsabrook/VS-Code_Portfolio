@@ -1,5 +1,4 @@
-import '../styles/mobile/mobile-about.css';
-import '../styles/computer/comp-about.css';
+import '../styles/about.css';
 
 function About() {
   return (

@@ -1,5 +1,4 @@
-import '../styles/mobile/mobile-home.css';
-import '../styles/computer/comp-home.css';
+import '../styles/home.css';
 
 function Home() {
   return (

@@ -1,5 +1,4 @@
-import '../styles/mobile/mobile-projects.css';
-import '../styles/computer/comp-projects.css';
+import '../styles/projects.css';
 
 function Projects() {
   return (

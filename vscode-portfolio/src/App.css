@@ -24,14 +24,30 @@ html {
 
 html,
 body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
 }
 
+main {
+  width: 100%;
+  height: 100%;
+  background: var(--color-background-light);
+}
+
 body {
   overflow: hidden;
+}
+/* Remove all button default styles */
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 
 /* All decoration and behavior removed from anchors */
@@ -187,13 +203,16 @@ border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding-bottom: 15px;
 }
 
 /* EXPLORER */
 .explorer {
-  width: 20%;
-  max-width: 150px;
-  min-width: 135px;
+  width: 15%;
+  min-width: 140px;
+  max-width: 200px;
   align-items: flex-start;
 }
 
@@ -203,7 +222,7 @@ border-radius: 5px;
 }
 
 .file-list-container {
-  margin-left: 5px;
+  padding-left: 5px;
   font-size: .9rem;
 }
 
@@ -211,8 +230,13 @@ border-radius: 5px;
   border-left: 1px solid var(--color-background-border);
 }
 
+.file {
+  border: none !important;
+  background-color: var(--color-background-dark) !important;
+}
+
 .explorer-files * {
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .accordian {
@@ -225,9 +249,18 @@ border-radius: 5px;
   margin-bottom: -2px;
 }
 
-/* MAIN CONTENT */
+/* File tabs and main page */
 .main-container {
-  width: 100%;
+  height: 100%;
+}
+
+/* main-container sizing if explorer is open or not */
+.explorer-visible {
+  width: 60%;
+}
+
+.explorer-hidden {
+  width: 90%;
 }
 
 .files-tabs {
@@ -236,42 +269,57 @@ border-radius: 5px;
   align-items: center;
   width: 100%;
   height: 35px;
-  border-bottom: 1px solid var(--color-background-border);
   padding: 0;
   margin: 0;
-  overflow-x: scroll;
+  overflow-x: auto;
+  /* Enable horizontal scrolling */
   overflow-y: hidden;
-  scrollbar-width: thin;
-  /* For Firefox */
-  scrollbar-color: rgba(155, 155, 155, 0.7) transparent;
-  /* For Firefox */
+  /* Disable vertical scrolling */
+  scrollbar-width:thin;
+  /* Make the scrollbar thinner */
+  scrollbar-color: var(--color-text-darker-grey) var(--color-background-light);
+  /* Make the scrollbar grey and the track transparent */
 }
 
-/* For Chrome, Safari, and Opera */
+/* For Webkit browsers like Chrome and Safari */
 .files-tabs::-webkit-scrollbar {
-  width: 8px;
+  height: 8px;
+  /* Height of the scrollbar */
 }
 
 .files-tabs::-webkit-scrollbar-track {
   background: transparent;
+  /* Make the track transparent */
 }
 
 .files-tabs::-webkit-scrollbar-thumb {
-  background-color: rgba(155, 155, 155, 0.7);
+  background-color: grey;
+  /* Make the handle grey */
   border-radius: 20px;
-  border: transparent;
+  /* Make the handle round */
+  border: 2px solid transparent;
+  /* Make the handle have a transparent border */
 }
-.files-tabs>li {
+
+.file-tab {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 120px;
-  border: 1px solid var(--color-background-border);
+  border-right: 1px solid var(--color-background-border);
+  border-bottom: 1px solid var(--color-background-border);
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 35px;
 }
 
+.active {
+  background-color: var(--color-background-light);
+  border-bottom: none;
+  border-top: 4px solid var(--color-code-dark-blue);
+}
+
+/* MAIN CONTENT */
 
 /* FOOTER */
 
@@ -323,10 +371,19 @@ border-radius: 5px;
 ==========================================*/
 @media (min-width: 768px) {
   .titlebar-options {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 300px;
-      margin-left: 20px;
-    }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+    margin-left: 20px;
+  }
+
+  /* main-container sizing if explorer is open or not */
+  .explorer-visible {
+    width: 95%;
+  }
+
+  .explorer-hidden {
+    width: 100%;
+  }
 }

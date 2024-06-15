@@ -1,6 +1,6 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
 // Images
 import vscodeLogo from './images/vscode_icon.svg';
@@ -23,18 +23,45 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
 
 
 function App() {
+  // Used to toggle the folder file dropdowns and their icons
   const [isPortfolioOpen, setPortfolioOpen] = useState(true);
   const [isContactSheetsOpen, setContactSheetsOpen] = useState(true);
-
+  const [portfolioIcon, setPortfolioIcon] = useState(faAngleDown);
+  const [contactIcon, setContactIcon] = useState(faAngleDown);
+  // When called check the state and flip it
   const togglePortfolio = () => {
     setPortfolioOpen(!isPortfolioOpen);
+    setPortfolioIcon(!isPortfolioOpen ? faAngleDown : faAngleRight)
   };
-
   const toggleContactSheets = () => {
     setContactSheetsOpen(!isContactSheetsOpen);
+    setContactIcon(!isContactSheetsOpen ? faAngleDown : faAngleRight)
+  };
+
+  // Checking for screen size to auto close file explorer
+  const [isExplorerVisible, setIsExplorerVisible] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsExplorerVisible(false);
+      } else {
+        setIsExplorerVisible(true);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleExplorerVisibility = () => {
+    setIsExplorerVisible(!isExplorerVisible);
   };
 
   return (
@@ -74,12 +101,14 @@ function App() {
           <div className="side-bar">
             <div className='side-bar-top'>
               {/* Sidebar flie explorer icon */}
-              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#697681" class="Sidebar_icon__czDJe">
-                <path d="M17.5 0h-9L7 1.5V6H2.5L1 7.5v15.07L2.5 24h12.07L16 22.57V18h4.7l1.3-1.43V4.5L17.5 0zm0 2.12l2.38 2.38H17.5V2.12zm-3 20.38h-12v-15H7v9.07L8.5 18h6v4.5zm6-6h-12v-15H16V6h4.5v10.5z">
-                </path>
-              </svg>
+              <button onClick={toggleExplorerVisibility}>
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#697681" class="Sidebar_icon__czDJe">
+                  <path d="M17.5 0h-9L7 1.5V6H2.5L1 7.5v15.07L2.5 24h12.07L16 22.57V18h4.7l1.3-1.43V4.5L17.5 0zm0 2.12l2.38 2.38H17.5V2.12zm-3 20.38h-12v-15H7v9.07L8.5 18h6v4.5zm6-6h-12v-15H16V6h4.5v10.5z">
+                  </path>
+                </svg>
+              </button>
               {/* Code icon */}
-              <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="rgb(106, 115, 125)" class="Sidebar_icon__czDJe">
+              <svg width="24" height="24" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="rgb(106, 115, 125)" class="Sidebar_icon__czDJe">
                 <path d="M4.708 5.578L2.061 8.224l2.647 2.646-.708.708-3-3V7.87l3-3 .708.708zm7-.708L11 5.578l2.647 2.646L11 10.87l.708.708 3-3V7.87l-3-3zM4.908 13l.894.448 5-10L9.908 3l-5 10z">
                 </path>
               </svg>
@@ -91,7 +120,7 @@ function App() {
             </div>
             <div className='side-bar-bottom'>
               {/* User icon */}
-              <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="rgb(106, 115, 125)" class="Sidebar_icon__czDJe">
+              <svg width="24" height="24" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="rgb(106, 115, 125)" class="Sidebar_icon__czDJe">
                 <path d="M16 7.992C16 3.58 12.416 0 8 0S0 3.58 0 7.992c0 2.43 1.104 4.62 2.832 6.09.016.016.032.016.032.032.144.112.288.224.448.336.08.048.144.111.224.175A7.98 7.98 0 008.016 16a7.98 7.98 0 004.48-1.375c.08-.048.144-.111.224-.16.144-.111.304-.223.448-.335.016-.016.032-.016.032-.032 1.696-1.487 2.8-3.676 2.8-6.106zm-8 7.001c-1.504 0-2.88-.48-4.016-1.279.016-.128.048-.255.08-.383a4.17 4.17 0 01.416-.991c.176-.304.384-.576.64-.816.24-.24.528-.463.816-.639.304-.176.624-.304.976-.4A4.15 4.15 0 018 10.342a4.185 4.185 0 012.928 1.166c.368.368.656.8.864 1.295.112.288.192.592.24.911A7.03 7.03 0 018 14.993zm-2.448-7.4a2.49 2.49 0 01-.208-1.024c0-.351.064-.703.208-1.023.144-.32.336-.607.576-.847.24-.24.528-.431.848-.575.32-.144.672-.208 1.024-.208.368 0 .704.064 1.024.208.32.144.608.336.848.575.24.24.432.528.576.847.144.32.208.672.208 1.023 0 .368-.064.704-.208 1.023a2.84 2.84 0 01-.576.848 2.84 2.84 0 01-.848.575 2.715 2.715 0 01-2.064 0 2.84 2.84 0 01-.848-.575 2.526 2.526 0 01-.56-.848zm7.424 5.306c0-.032-.016-.048-.016-.08a5.22 5.22 0 00-.688-1.406 4.883 4.883 0 00-1.088-1.135 5.207 5.207 0 00-1.04-.608 2.82 2.82 0 00.464-.383 4.2 4.2 0 00.624-.784 3.624 3.624 0 00.528-1.934 3.71 3.71 0 00-.288-1.47 3.799 3.799 0 00-.816-1.199 3.845 3.845 0 00-1.2-.8 3.72 3.72 0 00-1.472-.287 3.72 3.72 0 00-1.472.288 3.631 3.631 0 00-1.2.815 3.84 3.84 0 00-.8 1.199 3.71 3.71 0 00-.288 1.47c0 .352.048.688.144 1.007.096.336.224.64.4.927.16.288.384.544.624.784.144.144.304.271.48.383a5.12 5.12 0 00-1.04.624c-.416.32-.784.703-1.088 1.119a4.999 4.999 0 00-.688 1.406c-.016.032-.016.064-.016.08C1.776 11.636.992 9.91.992 7.992.992 4.14 4.144.991 8 .991s7.008 3.149 7.008 7.001a6.96 6.96 0 01-2.032 4.907z">
                 </path>
               </svg>
@@ -102,44 +131,44 @@ function App() {
               </svg>
             </div>
           </div>
-          <div className="explorer">
+          {isExplorerVisible && <div className="explorer" id='explorer'>
             <p>FOLDERS</p>
             <div className='file-list-container'>
-              <div className='accordian' onClick={togglePortfolio}><FontAwesomeIcon icon={faAngleDown} /> Portfolio</div>
+              <div className='accordian' onClick={togglePortfolio}><FontAwesomeIcon icon={portfolioIcon} /> Portfolio</div>
               {isPortfolioOpen && (
                 <ul className='explorer-files file-list'>
-                  <li><Link to="/" className="file-tab"><img className='lang-logo' src={jsonLogo} alt="json logo"></img>Home.json</Link></li>
-                  <li><Link to="/about" className="file-tab"><img className='lang-logo' src={htmlLogo} alt="html logo"></img>About.html</Link></li>
-                  <li><Link to="/projects" className="file-tab"><img className='lang-logo' src={jsLogo} alt="javascript logo"></img>Projects.js</Link></li>
-                  <li className='accordian' onClick={toggleContactSheets}><FontAwesomeIcon icon={faAngleDown} /> Contact Sheets
+                  <li><NavLink to="/" className="file"><img className='lang-logo' src={jsonLogo} alt="json logo"></img>Home.json</NavLink></li>
+                  <li><NavLink to="/about" className="file"><img className='lang-logo' src={htmlLogo} alt="html logo"></img>About.html</NavLink></li>
+                  <li><NavLink to="/projects" className="file"><img className='lang-logo' src={jsLogo} alt="javascript logo"></img>Projects.js</NavLink></li>
+                  <li className='accordian' onClick={toggleContactSheets}><FontAwesomeIcon icon={contactIcon} /> Contact Sheets
                     {isContactSheetsOpen && (
                       <ul className='file-list'>
-                        <li><Link to="/contact" className="file-tab"><img className='lang-logo' src={reactLogo} alt="react logo"></img>LinkedIn.jsx</Link></li>
-                        <li><Link to="/contact" className="file-tab"><img className='lang-logo' src={cssLogo} alt="css logo"></img>GitHub.css</Link></li>
+                        <li><NavLink to="/linkedin" className="file" onClick={(event) => event.stopPropagation()}><img className='lang-logo' src={reactLogo} alt="react logo"></img>LinkedIn.jsx</NavLink></li>
+                        <li><NavLink to="/github" className="file" onClick={(event) => event.stopPropagation()}><img className='lang-logo' src={cssLogo} alt="css logo"></img>GitHub.css</NavLink></li>
                       </ul>
                     )}
                   </li>
-                  <li><Link to="/resume" className="file-tab"><img className='lang-logo' src={markdownLogo} alt="markdown logo"></img>RESUME.md</Link></li>
+                  <li><NavLink to="/resume" className="file"><img className='lang-logo' src={markdownLogo} alt="markdown logo"></img>RESUME.md</NavLink></li>
                 </ul>
               )}
             </div>
-          </div>
-          <div className="main-container">
-            <ul className='files-tabs'>
-              <li><Link to="/" className="file-tab"><img className='lang-logo' src={jsonLogo} alt="json logo"></img> Home.json</Link></li>
-              <li><Link to="/about" className="file-tab"><img className='lang-logo' src={htmlLogo} alt="html logo"></img> About.html</Link></li>
-              <li><Link to="/projects" className="file-tab"><img className='lang-logo' src={jsLogo} alt="javascript logo"></img> Projects.js</Link></li>
-              <li><Link to="/contact" className="file-tab"><img className='lang-logo' src={reactLogo} alt="react logo"></img> LinkedIn.jsx</Link></li>
-              <li><Link to="/contact" className="file-tab"><img className='lang-logo' src={cssLogo} alt="css logo"></img> GitHub.css</Link></li>
-              <li><Link to="/resume" className="file-tab"><img className='lang-logo' src={markdownLogo} alt="markdown logo"></img> RESUME.md</Link></li>
+          </div>}
+          <div className={`main-container ${isExplorerVisible ? 'explorer-visible' : 'explorer-hidden'}`}>            <ul className='files-tabs'>
+              <li><NavLink to="/" activeClassName="active-tab" className="file-tab"><img className='lang-logo' src={jsonLogo} alt="json logo"></img> Home.json</NavLink></li>
+              <li><NavLink to="/about" activeClassName="active-tab" className="file-tab"><img className='lang-logo' src={htmlLogo} alt="html logo"></img> About.html</NavLink></li>
+              <li><NavLink to="/projects" activeClassName="active-tab" className="file-tab"><img className='lang-logo' src={jsLogo} alt="javascript logo"></img> Projects.js</NavLink></li>
+              <li><NavLink to="/github" activeClassName="active-tab" className="file-tab"><img className='lang-logo' src={cssLogo} alt="css logo"></img> GitHub.css</NavLink></li>
+              <li><NavLink to="/linkedin" activeClassName="active-tab" className="file-tab"><img className='lang-logo' src={reactLogo} alt="react logo"></img> LinkedIn.jsx</NavLink></li>
+              <li><NavLink to="/resume" activeClassName="active-tab" className="file-tab"><img className='lang-logo' src={markdownLogo} alt="markdown logo"></img> RESUME.md</NavLink></li>
             </ul>
-            {/* SPA dynamic Content */}
+            {/* Inserted dynamic Content */}
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/resume" element={<Resume />} />
-              <Route path="/contact" element={<Contact />} />
+              <Route path="/linkedin" element={<Contact />} />
+              <Route path="/github" element={<Contact />} />
             </Routes>
           </div>
         </div>
