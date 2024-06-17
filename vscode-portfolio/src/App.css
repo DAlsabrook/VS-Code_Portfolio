@@ -4,10 +4,15 @@
   --color-background-light: #1f1f1f;
   --color-background-border: #2b2b2b;
   --color-background-highlighted: #2a2d2e;
+  /* Code colors */
   --color-code-orange: #ce9178;
   --color-code-light-blue: #7cd6fe;
   --color-code-dark-blue: #569cd6;
   --color-code-green: #6a9955;
+  --color-code-light-yellow: #dcdcaa;
+  --color-code-yellow: #ffd710;
+  --color-code-pink: #c586c0;
+  /* Non code text */
   --color-text-light-grey: #aac4cd;
   --color-text-darker-grey: #697681;
   --color-white: #e8e7e7;
@@ -31,9 +36,16 @@ body {
 }
 
 main {
-  width: 100%;
+  width: 95%;
   height: 100%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
   background: var(--color-background-light);
+  overflow: scroll;
+  scrollbar-width: thin;
+  /* Make the scrollbar thinner */
+  scrollbar-color: var(--color-text-darker-grey) var(--color-background-light);
+  /* give the scrollbar and then the track color */
 }
 
 body {
@@ -92,6 +104,10 @@ li {
   /* Remove padding */
   margin: 0;
   /* Remove margin */
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 /* Default/mobile styles
@@ -366,9 +382,21 @@ border-radius: 5px;
   margin-right: 15px;
 }
 
-/* Tablet/Laptop/Desktop styles
+/* Tablet
 ==========================================
 ==========================================*/
+@media (min-width: 480px) {
+  /* main-container sizing if explorer is open or not */
+  .explorer-visible {
+    width: 75%;
+  }
+  .explorer-hidden {
+    width: 95%;
+  }
+}
+
+/* Laptop
+=======================*/
 @media (min-width: 768px) {
   .titlebar-options {
     display: flex;
@@ -380,7 +408,7 @@ border-radius: 5px;
 
   /* main-container sizing if explorer is open or not */
   .explorer-visible {
-    width: 95%;
+    width: 90%;
   }
 
   .explorer-hidden {
