@@ -22,7 +22,7 @@ function GitHub() {
     <main className="Github">
       <div className="content-container">
         <p>github page</p>
-        {userProfile && <p>Repos: {userProfile.public_repos}</p>}
+        {userProfile && (userProfile.public_repos ? <p>Repos: {userProfile.public_repos}</p> : <p>N/a</p>)}
         <GitHubCalendar username="DAlsabrook" />
       </div>
     </main>
