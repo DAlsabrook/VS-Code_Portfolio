@@ -19,7 +19,10 @@
   font-size: x-large;
 }
 
-
+/* Very specific selector for when the explorer is open on mobile */
+.explorer-hidden>.projects-main>.portfolio-content>.project-group {
+  padding-left: 10px;
+}
 
 /* Styling for projects
 ================================= */
@@ -27,13 +30,13 @@
 .project-group {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-  gap: 20px;
+  gap: 30px;
   width: 90%;
-  margin: auto;
+  /* margin-left: 10px; */
 }
 
 .project {
-  margin-top: 40px;
+  margin-top: 30px;
   padding: 20px;
   background-color: var(--color-background-dark);
   border: 1px solid var(--color-background-border);
@@ -49,19 +52,38 @@
   width: 80%;
 }
 
-.project-title {
-
-}
-
 .project-text {
   text-align: center;
 }
 
 .project-button {
-  background-color: var(--color-code-dark-blue);
-  padding: 10px;
-  border-radius: 10px;
+  position: relative;
+  height: 30px;
+  width: 50%;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: medium;
+  overflow: hidden;
+  z-index: 1;
+}
 
+.project-button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 47%;
+  border: 2px solid var(--color-button-blue);
+  height: 80%;
+  transition: height 0.3s ease, width 0.3s ease, left 0.3s ease;
+  z-index: -1;
+}
+
+.project-button:hover::before {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  background-color: var(--color-button-blue);
 }
 
 
@@ -140,8 +162,32 @@
   align-self: center;
 }
 
-@media (min-width: 768px) {
+/* Tablet
+==========================================
+==========================================*/
+@media (min-width: 480px) {
   .project-group {
-      grid-template-columns: repeat(auto-fill, minmax(40%, 2fr));
+    margin:auto;
+  }
+  /* Very specific selector for when the explorer is open on mobile.
+  reseting to 0 for anything bigger than mobile */
+  .explorer-hidden>.projects-main>.portfolio-content>.project-group {
+    padding-left: 0px;
+  }
+
+}
+
+/* Laptop
+=======================*/
+@media (min-width: 768px) {
+  /* switch to two columns for projects */
+  .project-group {
+      grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
     }
+}
+
+/* Large screens
+=======================*/
+@media (min-width: 1440px) {
+
 }

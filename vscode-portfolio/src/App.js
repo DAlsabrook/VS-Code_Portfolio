@@ -15,7 +15,8 @@ import reactLogo from './images/react_icon.svg';
 import Home from "./components/home.js"
 import Projects from "./components/projects.js"
 import About from "./components/about.js"
-import Contact from "./components/contact.js"
+import GitHub from "./components/github.js"
+import LinkedIn from "./components/linkedin.js"
 import Resume from "./components/resume.js"
 
 // Font Awesome components
@@ -167,8 +168,8 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/resume" element={<Resume />} />
-              <Route path="/linkedin" element={<Contact />} />
-              <Route path="/github" element={<Contact />} />
+              <Route path="/linkedin" element={<LinkedIn />} />
+              <Route path="/github" element={<GitHub />} />
             </Routes>
           </div>
         </div>
