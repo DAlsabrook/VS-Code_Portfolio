@@ -22,9 +22,7 @@ const GetLangs = (repo) => {
       // Octokit.js
       // https://github.com/octokit/core.js#readme
       const octokit = new Octokit();
-
       const response = await octokit.request(`GET /repos/DAlsabrook/vs-code_portfolio/languages`);
-
 
       Object.entries(response.data).forEach(([key, value]) => {
         console.log(`${key}: ${value}`);
@@ -35,6 +33,7 @@ const GetLangs = (repo) => {
 
     fetchRepoLangs();
   }, [repo]);
+  // Get the total % of the project for each lang
   let totalBytes = 0;
   if (langs) {
     totalBytes = Object.values(langs).reduce((a, b) => a + b, 0);
