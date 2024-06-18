@@ -14,6 +14,42 @@ import githubLogo from '../images/GitHub_Logo.png'
 // Used to set individual words colors in the return
 const ColoredText = ({ text, color }) => <span className={`${color} large`}>{text}</span>;
 
+const GetLangs = (repo) => {
+  const [langs, setLangs] = useState(null);
+
+  useEffect((repo) => {
+    async function fetchRepoLangs() {
+      // Octokit.js
+      // https://github.com/octokit/core.js#readme
+      const octokit = new Octokit();
+
+      const response = await octokit.request(`GET /repos/DAlsabrook/vs-code_portfolio/languages`);
+
+
+      Object.entries(response.data).forEach(([key, value]) => {
+        console.log(`${key}: ${value}`);
+      });
+
+      setLangs(response.data);
+    }
+
+    fetchRepoLangs();
+  }, [repo]);
+  let totalBytes = 0;
+  if (langs) {
+    totalBytes = Object.values(langs).reduce((a, b) => a + b, 0);
+  }
+
+  return (
+    <div>
+      {langs && Object.entries(langs).map(([lang, bytes]) => {
+        const percentage = ((bytes / totalBytes) * 100).toFixed(2);
+        return <p key={lang}>{lang}: {percentage}%</p>
+      })}
+    </div>
+  );
+}
+
 function Projects() {
   // modal("title", "<p>Flask</p> <p>HTML</p> <p>CSS</p>", "<p>Description of project</p>", "github URL")
   const modal = (title, technologies, description, githubLink) => {
