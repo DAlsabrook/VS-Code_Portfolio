@@ -9,9 +9,6 @@ function GitHub() {
     async function fetchUserProfile() {
       const response = await fetch("https://api.github.com/users/DAlsabrook");
       const user = await response.json();
-      Object.entries(user).forEach(([key, value]) => {
-        console.log(`${key}: ${value}`);
-      });
       setUserProfile(user);
     }
 

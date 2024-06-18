@@ -22,8 +22,32 @@ const GetLangs = ({ repo }) => {
   useEffect(() => {
     async function fetchRepoLangs() {
       const octokit = new Octokit();
-      const response = await octokit.request(`GET /repos/DAlsabrook/${repo}/languages`);
-      setLangs(response.data);
+
+      // Check if the data is in localStorage
+      let storedData = localStorage.getItem(repo);
+      if (storedData) {
+        storedData = JSON.parse(storedData);
+      }
+
+      const currentTime = new Date().getTime();
+      const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+      // If the data is not in localStorage, or it's older than 24 hours, fetch it again
+      if (!storedData || currentTime - storedData.timestamp > oneDay) {
+        const response = await octokit.request(`GET /repos/DAlsabrook/${repo}/languages`);
+        const langsData = response.data;
+
+        // Store the data along with the current timestamp
+        localStorage.setItem(repo, JSON.stringify({
+          timestamp: currentTime,
+          data: langsData
+        }));
+
+        setLangs(langsData);
+      } else {
+        // If the data is in localStorage and it's not older than 24 hours, use it
+        setLangs(storedData.data);
+      }
     }
 
     fetchRepoLangs();
