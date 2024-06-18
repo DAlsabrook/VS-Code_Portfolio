@@ -1,5 +1,7 @@
 import '../styles/projects.css';
 import Swal from 'sweetalert2';
+import React, { useState, useEffect } from 'react';
+import { Octokit } from "@octokit/core";
 
 // Images
 import laptopWindow from "../images/laptop-window.png"
@@ -14,26 +16,19 @@ import githubLogo from '../images/GitHub_Logo.png'
 // Used to set individual words colors in the return
 const ColoredText = ({ text, color }) => <span className={`${color} large`}>{text}</span>;
 
-const GetLangs = (repo) => {
+const GetLangs = ({ repo }) => {
   const [langs, setLangs] = useState(null);
 
-  useEffect((repo) => {
+  useEffect(() => {
     async function fetchRepoLangs() {
-      // Octokit.js
-      // https://github.com/octokit/core.js#readme
       const octokit = new Octokit();
-      const response = await octokit.request(`GET /repos/DAlsabrook/vs-code_portfolio/languages`);
-
-      Object.entries(response.data).forEach(([key, value]) => {
-        console.log(`${key}: ${value}`);
-      });
-
+      const response = await octokit.request(`GET /repos/DAlsabrook/${repo}/languages`);
       setLangs(response.data);
     }
 
     fetchRepoLangs();
   }, [repo]);
-  // Get the total % of the project for each lang
+
   let totalBytes = 0;
   if (langs) {
     totalBytes = Object.values(langs).reduce((a, b) => a + b, 0);
@@ -43,7 +38,18 @@ const GetLangs = (repo) => {
     <div>
       {langs && Object.entries(langs).map(([lang, bytes]) => {
         const percentage = ((bytes / totalBytes) * 100).toFixed(2);
-        return <p key={lang}>{lang}: {percentage}%</p>
+        return <div key={`${repo}-${lang}`}>
+          <p className='langs-name' style={{ width: `${percentage}%` }}>
+              {lang}: {Math.round(percentage)}%
+            </p>
+            <div className="langs-bar" style={{
+              color: "black",
+              backgroundColor: "var(--color-code-orange)",
+              height: "20px",
+              width: `${percentage}%`
+            }}>
+            </div>
+          </div>
       })}
     </div>
   );
@@ -60,10 +66,11 @@ function Projects() {
       imageAlt: "Custom image",
       html: `
                 <div class="modal-tech-list">
-                    ${technologies}
+                  ${technologies}
                 </div>
                 <div>
-                    <p>${description}</p>
+                  <p></p>
+                  <p>${description}</p>
                 </div>
             `,
       showConfirmButton: false,
@@ -93,6 +100,7 @@ function Projects() {
           <div className="project">
             <img src={laptopWindow} className="project-img" alt="project1"></img>
             <h1 className='project-title'>Instructor Index</h1>
+            <div className='langs'><GetLangs repo="Instructor_Index" /></div>
             <p className='project-text'>
               This site is a full back and front end using flask and RESTapi.
               I used this as a project to challenge myself in using python for a
@@ -112,6 +120,7 @@ function Projects() {
           <div className="project">
             <img src={laptopWindow} className="project-img" alt="project1"></img>
             <h1 className='project-title'>Portfolio Page</h1>
+            <div className='langs'><GetLangs repo="vs-code_portfolio" /></div>
             <p className='project-text'>
               I LOVED making this site and learning so much about the REACT
               framework. Learning how to build and import components to use was
@@ -131,6 +140,7 @@ function Projects() {
           <div className="project">
             <img src={laptopWindow} className="project-img" alt="project1"></img>
             <h1 className='project-title'>The Shallot</h1>
+            <div className='langs'><GetLangs repo="Hack_Sprint" /></div>
             <p className='project-text'>
               This site is a fully front end sequential discovery puzzle.
               I only used html, javascript, and CSS to make this site.
@@ -146,6 +156,7 @@ function Projects() {
           <div className="project">
             <img src={laptopWindow} className="project-img" alt="project1"></img>
             <h1 className='project-title'>TuBrosWindows</h1>
+            <div className='langs'><GetLangs repo="vs-code_portfolio" /></div>
             <p className='project-text'>
               This site is a full back and front end using flask and RESTapi.
               I used this as a project to challenge myself in using python for a

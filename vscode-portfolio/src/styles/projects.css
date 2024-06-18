@@ -52,6 +52,27 @@
 .project-img {
   width: 80%;
 }
+/* Contains all langs items */
+.langs>div{
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+/* Contains the names (langs-name) and bar(langs-bar) */
+.langs > div > div {
+  margin: 0;
+  padding: 0;
+}
+.langs-name {
+  margin: 0;
+  padding: 0;
+}
+
+.langs-bar {
+  margin: 0;
+  padding: 0;
+}
 
 .project-text {
   text-align: center;
