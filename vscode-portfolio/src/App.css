@@ -52,6 +52,7 @@ main {
 body {
   overflow: hidden;
 }
+
 /* Remove all button default styles */
 button {
   background: none;
