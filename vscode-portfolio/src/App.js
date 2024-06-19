@@ -10,6 +10,7 @@ import jsLogo from './images/js_icon.svg';
 import jsonLogo from './images/json_icon.svg';
 import markdownLogo from './images/markdown_icon.svg';
 import reactLogo from './images/react_icon.svg';
+import windowsXP from './images/windowsXP1440x768.png';
 
 // Components
 import Home from "./components/home.js"
@@ -65,14 +66,37 @@ function App() {
     setIsExplorerVisible(!isExplorerVisible);
   };
 
+  // Logic for "X" to show the desktop
+  const [isDesktopVisible, setIsDesktopVisible] = useState(false);
+
+  useEffect(() => {
+    if (isDesktopVisible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isDesktopVisible]);
+
+  const showDesktop = () => {
+    setIsDesktopVisible(isDesktopVisible ? false : true);
+  };
+
   return (
     <div className="App">
+      <div className='desktop' style={{ display: isDesktopVisible ? "block" : "none" }}>
+        <img src={windowsXP} alt='Windows xp desktop image' className='windowsXP'></img>
+        <button
+        className='desktop-button'
+        style={{ display: isDesktopVisible ? "block" : "none" }}
+        onClick={showDesktop}>
+          <img src={vscodeLogo} alt="desktop button icon" className='desktop-button-icon'></img>
+          <p className='desktop-button-text'>Visual Studio Code</p>
+        </button>
+      </div>
       {/* Title Bar */}
       <div className='titlebar'>
         <div className='titlebar-left'>
-          <span className="titlebar-vscode-logo">
-            <img src={vscodeLogo} alt="vscode icon"></img>
-          </span>
+          <img src={vscodeLogo} alt="vs code icon" className="titlebar-vscode-logo"></img>
           <div className="titlebar-options-container">
             <ul className="titlebar-options">
               <li>File</li>
@@ -91,7 +115,7 @@ function App() {
             <FontAwesomeIcon icon={faWindowMinimize} />
           </i>
           <svg xmlns="http://www.w3.org/2000/svg" fill="#697681" viewBox="0 0 448 512"><path d="M384 80c8.8 0 16 7.2 16 16V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16H384zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z" /></svg>
-          <i className='browser-x'>
+          <i className='browser-x' onClick={showDesktop}>
             <FontAwesomeIcon icon={faXmark} />
           </i>
         </div>
@@ -155,13 +179,13 @@ function App() {
             </div>
           </div>}
           <div className={`main-container ${isExplorerVisible ? 'explorer-visible' : 'explorer-hidden'}`}>            <ul className='files-tabs'>
-              <li><NavLink to="/" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={jsonLogo} alt="json logo"></img> Home.json</NavLink></li>
-              <li><NavLink to="/about" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={htmlLogo} alt="html logo"></img> About.html</NavLink></li>
-              <li><NavLink to="/projects" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={jsLogo} alt="javascript logo"></img> Projects.js</NavLink></li>
-              <li><NavLink to="/github" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={cssLogo} alt="css logo"></img> GitHub.css</NavLink></li>
-              <li><NavLink to="/linkedin" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={reactLogo} alt="react logo"></img> LinkedIn.jsx</NavLink></li>
-              <li><NavLink to="/resume" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={markdownLogo} alt="markdown logo"></img> RESUME.md</NavLink></li>
-            </ul>
+            <li><NavLink to="/" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={jsonLogo} alt="json logo"></img> Home.json</NavLink></li>
+            <li><NavLink to="/about" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={htmlLogo} alt="html logo"></img> About.html</NavLink></li>
+            <li><NavLink to="/projects" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={jsLogo} alt="javascript logo"></img> Projects.js</NavLink></li>
+            <li><NavLink to="/github" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={cssLogo} alt="css logo"></img> GitHub.css</NavLink></li>
+            <li><NavLink to="/linkedin" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={reactLogo} alt="react logo"></img> LinkedIn.jsx</NavLink></li>
+            <li><NavLink to="/resume" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={markdownLogo} alt="markdown logo"></img> RESUME.md</NavLink></li>
+          </ul>
             {/* Inserted dynamic Content */}
             <Routes>
               <Route path="/" element={<Home />} />

@@ -119,6 +119,46 @@ li {
   color: var(--color-white);
   font-weight: 200;
   font-size: small;
+  position: relative;
+}
+
+.desktop {
+  width: 100%;
+  position: absolute;
+  display: none;
+  z-index: 10;
+}
+
+.windowsXP {
+  height: 100vh;
+  position: relative;
+}
+
+.desktop-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 40%;
+  left: 20%;
+  opacity: 1;
+  cursor: pointer;
+  z-index: 11;
+}
+
+.desktop-button-icon {
+  height: 50px;
+  width: auto;
+  background-color: var(--color-background-dark);
+  border-radius: 30%;
+  padding: 3px;
+}
+
+.desktop-button-text {
+  font-size: 14px;
+  width: 90px;
+  font-weight: 600;
 }
 
 /* TOP TITLE BAR */
@@ -180,6 +220,7 @@ border-radius: 5px;
 
 .browser-x {
   margin-top: -5px;
+  cursor: pointer;
 }
 
 /* Main page content */
@@ -417,6 +458,10 @@ border-radius: 5px;
   }
 
   .explorer-hidden {
+    width: 100%;
+  }
+
+  .windowsXP {
     width: 100%;
   }
 }
