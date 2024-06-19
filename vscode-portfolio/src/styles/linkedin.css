@@ -5,12 +5,12 @@
 }
 
 .linkedin-card {
-  width: 90%;
-  max-height: 85%;
+  width: 95%;
+  max-height: 95%;
   max-width: 1000px;
   background-color: var(--color-background-dark);
   border-radius: 20px;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 /* banner */
@@ -30,14 +30,21 @@
 
 .banner-info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   padding-left: 20px;
-  font-size: large;
+  width: 300px;
 }
 
-.banner-info>p {
+.banner-name {
+  display: flex;
+  font-size: large;
+  flex-direction: row;
+  align-items: center;
+}
+
+.banner-name>p {
   color: var(--color-text-darker-grey);
   font-size: small;
   font-weight: 500;
@@ -46,4 +53,17 @@
 .shield {
   width: 30px;
   height: 20px;
+}
+
+/* Activity list */
+.activity-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.activity-list>iframe {
+  border-radius: 20px;
 }
