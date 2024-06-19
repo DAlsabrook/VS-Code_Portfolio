@@ -14,15 +14,14 @@ import flaskLogo from '../images/Flask.png'
 import githubLogo from '../images/GitHub_Logo.png'
 
 // Used to set individual words colors in the return
-const ColoredText = ({ text, color }) => <span className={`${color} large`}>{text}</span>;
+const ColoredText = ({ text, color }) => <span className={`${color}`}>{text}</span>;
 
+// Hitting the GitHub REST api to get repo languages data
 const GetLangs = ({ repo }) => {
   const [langs, setLangs] = useState(null);
-
   useEffect(() => {
     async function fetchRepoLangs() {
       const octokit = new Octokit();
-
       // Check if the data is in localStorage
       let storedData = localStorage.getItem(repo);
       if (storedData) {
@@ -63,17 +62,17 @@ const GetLangs = ({ repo }) => {
       {langs && Object.entries(langs).map(([lang, bytes]) => {
         const percentage = ((bytes / totalBytes) * 100).toFixed(2);
         return <div key={`${repo}-${lang}`}>
-          <p className='langs-name' style={{ width: `${percentage}%` }}>
-              {lang}: {Math.round(percentage)}%
-            </p>
+          <p className='langs-name'>
+            <ColoredText text={`"${lang}"`} color="orange" />: <ColoredText text={`${Math.round(percentage).toString()}%`} color="light-yellow" />;
+          </p>
+          <div className='langs-bar-container'>
             <div className="langs-bar" style={{
-              color: "black",
-              backgroundColor: "var(--color-code-orange)",
-              height: "20px",
+              backgroundColor: "var(--color-code-dark-blue)",
               width: `${percentage}%`
-            }}>
+              }}>
             </div>
           </div>
+        </div>
       })}
     </div>
   );
@@ -92,10 +91,7 @@ function Projects() {
                 <div class="modal-tech-list">
                   ${technologies}
                 </div>
-                <div>
-                  <p></p>
-                  <p>${description}</p>
-                </div>
+                ${description}
             `,
       showConfirmButton: false,
       showCancelButton: true,
@@ -121,6 +117,7 @@ function Projects() {
           </pre>
         </h1>
         <div className="project-group">
+          {/* Instructor Index */}
           <div className="project">
             <img src={laptopWindow} className="project-img" alt="project1"></img>
             <h1 className='project-title'>Instructor Index</h1>
@@ -141,6 +138,7 @@ function Projects() {
               "https://github.com/DAlsabrook/Instructor_Index")}>Details
             </button>
           </div>
+          {/* VS Code Portfolio */}
           <div className="project">
             <img src={laptopWindow} className="project-img" alt="project1"></img>
             <h1 className='project-title'>Portfolio Page</h1>
@@ -151,16 +149,15 @@ function Projects() {
               super interesting. I made this site with accessability and having
               a responsive design in mind.
             </p>
-            <button className="project-button" onClick={() => modal("Instructor Index",
-              "<p>REACT</p> <p>HTML</p> <p>CSS</p>",
+            <button className="project-button" onClick={() => modal("VS Code Portfolio",
+              "<p>REACT</p> <p>GitHub REST</p>",
               "<p>Description of project that I used this great tech in. I learned a lot\
                               from it and will never forget how to use this technology for sure. I dont\
                               know how anyone could forget any of this crazy code</p>",
               "https://github.com/DAlsabrook/Portfolio_Web_page")}>Details
             </button>
           </div>
-        </div>
-        <div className="project-group">
+
           <div className="project">
             <img src={laptopWindow} className="project-img" alt="project1"></img>
             <h1 className='project-title'>The Shallot</h1>
