@@ -3,6 +3,8 @@ import GitHubCalendar from 'react-github-calendar';
 import '../styles/github.css';
 
 function GitHub() {
+
+  // GitHub REST API to get user profile
   const [userProfile, setUserProfile] = useState(null);
 
   useEffect(() => {

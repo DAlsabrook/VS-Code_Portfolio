@@ -1,16 +1,16 @@
 .LinkedIn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
+  padding-top: 20px;
 }
 
 .linkedin-card {
-  width: 95%;
-  max-height: 95%;
+  width: 100%;
   max-width: 1000px;
   background-color: var(--color-background-dark);
   border-radius: 20px;
-  overflow: scroll;
+  padding-bottom: 20px;
+  overflow: hidden;
+  margin: auto;
 }
 
 /* banner */
@@ -28,13 +28,21 @@
   margin-left: 5%;
 }
 
+.linkedin-container {
+  width: 85%;
+  margin: auto;
+}
+
+.banner-info-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
 .banner-info {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  padding-left: 20px;
-  width: 300px;
 }
 
 .banner-name {
@@ -42,6 +50,7 @@
   font-size: large;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 0;
 }
 
 .banner-name>p {
@@ -55,15 +64,87 @@
   height: 20px;
 }
 
-/* Activity list */
-.activity-list {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  align-items: center;
+.job {
+  margin: 0;
+  margin-top: -5px;
 }
 
-.activity-list>iframe {
-  border-radius: 20px;
+.location {
+  color: var(--color-text-darker-grey);
+  font-weight: 500;
+}
+
+.linkedin-connect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 110px;
+  padding: 0;
+  overflow: hidden;
+  border: 3px solid #0072b1;
+  border-radius: 5px;
+  background-color: #016ea9;
+}
+
+.linkedin-connect>p {
+  font-size: large;
+  font-weight: 800;
+  margin: 0;
+  color: var(--color-background-dark);
+}
+
+.linkedin-logo {
+  height: 25px;
+  padding: 2px;
+  padding-left: 5px;
+  border-radius: 5px;
+  background-color: var(--color-background-dark);
+}
+
+/* Top skills */
+.top-skills-container{
+  border: 1px solid var(--color-background-border);
+  border-radius: 10px;
+  height: 60px;
+  padding-left: 15px;
+  padding-top: 15px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  height: 25px;
+}
+
+.diamond{
+  height: 25px;
+}
+
+.top-skills {
+  font-size: medium;
+  font-weight: 500;
+}
+
+.skills {
+  padding-left: 35px;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+@media (min-width: 480px) {
+  .banner-info-container {
+    flex-direction: row;
+  }
+
+  .linkedin-connect {
+    justify-content: center;
+    margin: auto;
+  }
 }
