@@ -40,7 +40,13 @@ function LinkedIn() {
               <img src={diamond} alt='diamond' className='diamond'></img>
               <p className="top-skills">Top Skills</p>
             </div>
-            <p className="skills">JavaScript &bull; REACT.js &bull; CSS &bull; HTML &bull; C &bull; Python</p>
+            <p className="skills">JavaScript
+              &nbsp;&bull;&nbsp; REACT.js
+              &nbsp;&bull;&nbsp; CSS
+              &nbsp;&bull;&nbsp; HTML
+              &nbsp;&bull;&nbsp; C
+              &nbsp;&bull;&nbsp; Python
+              </p>
           </div>
         </div>
       </div>
