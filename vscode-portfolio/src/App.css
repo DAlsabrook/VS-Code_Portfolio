@@ -63,20 +63,27 @@ li {
 .App {
   display: flex;
   flex-direction: row;
-}
-
-.main-page-tab-ul {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.main-page-tab-ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  width: 15%;
+  width: 50px;
 }
 
 [class^="tab-"] {
   display: flex;
   height: 100%;
-  width: 33%
+  width: 25%;
 }
 

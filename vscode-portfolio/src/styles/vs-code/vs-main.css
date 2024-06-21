@@ -50,6 +50,8 @@ section {
   font-weight: 200;
   font-size: small;
   position: relative;
+  width: 97%;
+  height: 100%;
 }
 
 .desktop {
