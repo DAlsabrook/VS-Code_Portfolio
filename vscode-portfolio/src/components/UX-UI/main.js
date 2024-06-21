@@ -24,7 +24,7 @@ function UXUI() {
 
   // JSX to be injected
   return (
-    <div className="App">
+    <div className="ux-ui">
       {/* Navigation bar */}
       <nav>
         <div className='content-container'>

@@ -28,36 +28,46 @@ import uxuiResumeStyles from './styles/UX-UI/uxui-resume.css';
 import uxuiMainStyles from './styles/UX-UI/uxui-main.css';
 import uxuiHomeStyles from './styles/UX-UI/uxui-home.css';
 
+import './App.css';
+
 function App() {
 
   return (
-    <Router>
-      <NavLink to="/vscode" style={{ color: "white", backgroundColor: "red", zIndex: "1000" }}>VS Code</NavLink>
-      <NavLink to="/uxui" style={{ color: "white", backgroundColor: "red", zIndex: "1000" }}>UXUI</NavLink>
-      {/* Defines all routes for app.js and all children routes */}
-      {/* All children routes must start with path of parent */}
-      <Routes>
-        {/* VS Code version of the site */}
-        <Route path="/vscode" element={<VsCode customStyle={vscodeMainStyles} />}>
-          <Route index path="/vscode" element={<Home customStyle={vscodeHomeStyles} />} />
-          <Route path="/vscode/about" element={<About customStyle={vscodeAboutStyles} />} />
-          <Route path="/vscode/projects" element={<Projects customStyle={vscodeProjectStyles}/>} />
-          <Route path="/vscode/resume" element={<Resume customStyle={vscodeResumeStyles} />} />
-          <Route path="/vscode/linkedin" element={<LinkedIn customStyle={vscodeLinkedinStyles} />} />
-          <Route path="/vscode/github" element={<GitHub customStyle={vscodeGithubStyles} />} />
-        </Route>
-        {/* UX UI version of the site */}
-        <Route path="/uxui" element={<UXUI customStyle={uxuiMainStyles} />}>
-          <Route index path="/uxui" element={<Home customStyle={uxuiHomeStyles} />} />
-          <Route path="/uxui/about" element={<About customStyle={uxuiAboutStyles} />} />
-          <Route path="/uxui/projects" element={<Projects customStyle={uxuiProjectStyles} />} />
-          <Route path="/uxui/resume" element={<Resume customStyle={uxuiResumeStyles} />} />
-          <Route path="/uxui/linkedin" element={<LinkedIn customStyle={uxuiLinkedinStyles} />} />
-          <Route path="/uxui/github" element={<GitHub customStyle={uxuiGithubStyles} />} />
-        </Route>
-      </Routes>
-      <Outlet />
-    </Router>
+    <div className='App'>
+      <Router>
+        <ul className='main-page-tab-ul'>
+          <li className='main-page-tab-li'>
+            <NavLink to="/vscode" className="tab-vs" style={{ color: "white", backgroundColor: "red", zIndex: "1000" }}>VS Code</NavLink>
+          </li>
+          <li className='main-page-tab-li'>
+            <NavLink to="/uxui" className="tab-uxui" style={{ color: "white", backgroundColor: "red", zIndex: "1000" }}>UXUI</NavLink>
+          </li>
+        </ul>
+        {/* Defines all routes for app.js and all children routes */}
+        {/* All children routes must start with path of parent */}
+        <Routes>
+          {/* VS Code version of the site */}
+          <Route path="/vscode" element={<VsCode customStyle={vscodeMainStyles} />}>
+            <Route index path="/vscode" element={<Home customStyle={vscodeHomeStyles} />} />
+            <Route path="/vscode/about" element={<About customStyle={vscodeAboutStyles} />} />
+            <Route path="/vscode/projects" element={<Projects customStyle={vscodeProjectStyles}/>} />
+            <Route path="/vscode/resume" element={<Resume customStyle={vscodeResumeStyles} />} />
+            <Route path="/vscode/linkedin" element={<LinkedIn customStyle={vscodeLinkedinStyles} />} />
+            <Route path="/vscode/github" element={<GitHub customStyle={vscodeGithubStyles} />} />
+          </Route>
+          {/* UX UI version of the site */}
+          <Route path="/uxui" element={<UXUI customStyle={uxuiMainStyles} />}>
+            <Route index path="/uxui" element={<Home customStyle={uxuiHomeStyles} />} />
+            <Route path="/uxui/about" element={<About customStyle={uxuiAboutStyles} />} />
+            <Route path="/uxui/projects" element={<Projects customStyle={uxuiProjectStyles} />} />
+            <Route path="/uxui/resume" element={<Resume customStyle={uxuiResumeStyles} />} />
+            <Route path="/uxui/linkedin" element={<LinkedIn customStyle={uxuiLinkedinStyles} />} />
+            <Route path="/uxui/github" element={<GitHub customStyle={uxuiGithubStyles} />} />
+          </Route>
+        </Routes>
+        <Outlet />
+      </Router>
+    </div>
   );
 }
 

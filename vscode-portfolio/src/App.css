@@ -49,9 +49,6 @@ ol {
   /* Remove padding */
   margin: 0;
   /* Remove margin */
-  margin-left: 5px;
-  padding-left: 10px;
-  /* adujust these 2 to make the dropdown line centered */
 }
 
 li {
@@ -60,3 +57,26 @@ li {
   margin: 0;
   /* Remove margin */
 }
+
+/* Styling tabs */
+
+.App {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-page-tab-ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 15%;
+}
+
+[class^="tab-"] {
+  display: flex;
+  height: 100%;
+  width: 33%
+}
+

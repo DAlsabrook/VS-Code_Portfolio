@@ -216,6 +216,10 @@ section {
 
 .file-list {
   border-left: 1px solid var(--color-background-border);
+
+  margin-left: 5px;
+  padding-left: 10px;
+  /* adujust these 2 to make the dropdown line centered */
 }
 
 .file {
