@@ -102,19 +102,8 @@ function Projects() {
   }
 
   return (
-    <main className="projects-main">
+    <section className="projects">
       <div className="portfolio-content">
-        <h1>
-          <pre>
-            <code>
-              <ColoredText text="const" color="dark-blue" />{' '}
-              <ColoredText text="projects" color="light-yellow" />{' = '}
-              <ColoredText text="()" color="yellow" />{' '}
-              <ColoredText text="=>" color="dark-blue" />{' '}
-              <ColoredText text="{" color="yellow" />
-            </code>
-          </pre>
-        </h1>
         <div className="project-group">
           {/* Instructor Index */}
           <div className="project">
@@ -191,13 +180,8 @@ function Projects() {
             </button>
           </div>
         </div>
-        <pre>
-          <code>
-            <ColoredText text="}" color="yellow" />
-          </code>
-        </pre>
       </div>
-    </main>
+    </section>
   )
 }
 

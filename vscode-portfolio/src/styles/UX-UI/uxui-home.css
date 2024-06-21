@@ -1,0 +1,27 @@
+/* Mobile styles
+==========================================
+==========================================*/
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-title {
+  font-family: var(--font-titles);
+  font-weight: 200;
+  width: 80%;
+}
+
+.banner-subtitle {
+  font-family: var(--font-titles);
+  font-weight: 100;
+  color: var(--secondary-color);
+  width: 80%;
+}
+
+/* Tablet/Laptop/Desktop styles
+==========================================
+==========================================*/

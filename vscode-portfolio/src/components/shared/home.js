@@ -1,11 +1,11 @@
 
 function Home() {
   return (
-    <main className="Home">
+    <section className="home">
       <div className="content-container">
         <p>Home page</p>
       </div>
-    </main>
+    </section>
   )
 }
 

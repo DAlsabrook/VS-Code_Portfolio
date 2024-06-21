@@ -17,13 +17,13 @@ function GitHub() {
   }, []);
 
   return (
-    <main className="Github">
+    <section className="github">
       <div className="content-container">
         <p>github page</p>
         {userProfile && (userProfile.public_repos ? <p>Repos: {userProfile.public_repos}</p> : <p>N/a</p>)}
         <GitHubCalendar username="DAlsabrook" />
       </div>
-    </main>
+    </section>
   )
 }
 

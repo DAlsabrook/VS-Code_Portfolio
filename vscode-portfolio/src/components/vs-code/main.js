@@ -74,7 +74,7 @@ function VsCode() {
   };
 
   return (
-    <div className="App">
+    <div className="vs-code">
       <div className='desktop' style={{ display: isDesktopVisible ? "block" : "none" }}>
         <img src={windowsXP} alt='Windows xp desktop' className='windowsXP'></img>
         <button

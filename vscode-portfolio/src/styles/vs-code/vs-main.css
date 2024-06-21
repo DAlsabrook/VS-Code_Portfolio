@@ -24,19 +24,11 @@
     monospace;
 }
 
-html {
-  background-color: var(--color-background-dark);
+.pointer {
+  cursor: pointer;
 }
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-main {
+section {
   width: 95%;
   height: 100%;
   padding-left: 2.5%;
@@ -49,73 +41,10 @@ main {
   /* give the scrollbar and then the track color */
 }
 
-body {
-  overflow: hidden;
-}
-
-/* Remove all button default styles */
-button {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-}
-
-/* All decoration and behavior removed from anchors */
-a {
-  text-decoration: none;
-  /* Remove underlines */
-  color: inherit;
-  /* Inherit color from parent */
-  cursor: pointer;
-  /* Change cursor to pointer on hover */
-}
-
-a:visited {
-  color: inherit;
-  /* Inherit color from parent, even after link is visited */
-}
-
-a:hover,
-a:focus {
-  text-decoration: none;
-  /* Remove underlines on hover/focus */
-  outline: none;
-  /* Remove outline on focus */
-}
-
-/* Remove all list styling */
-ul,
-ol {
-  list-style-type: none;
-  /* Remove bullet points or numbers */
-  padding: 0;
-  /* Remove padding */
-  margin: 0;
-  /* Remove margin */
-  margin-left: 5px;
-  padding-left: 10px;
-  /* adujust these 2 to make the dropdown line centered */
-}
-
-li {
-  padding: 0;
-  /* Remove padding */
-  margin: 0;
-  /* Remove margin */
-}
-
-.pointer {
-  cursor: pointer;
-}
-
 /* Default/mobile styles
 ==========================================
 ==========================================*/
-.App {
+.vs-code {
   background-color: var(--color-background-dark);
   color: var(--color-white);
   font-weight: 200;

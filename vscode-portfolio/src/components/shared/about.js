@@ -1,10 +1,10 @@
 function About() {
   return (
-    <main className="about">
+    <section className="about">
       <div className="content-container">
         <p>About page</p>
       </div>
-    </main>
+    </section>
   )
 }
 

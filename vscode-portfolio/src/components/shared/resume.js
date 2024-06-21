@@ -1,11 +1,11 @@
 
 function Resume() {
   return (
-    <main className="Resume">
+    <section className="resume">
       <div className="content-container">
         <p>Resume page</p>
       </div>
-    </main>
+    </section>
   )
 }
 

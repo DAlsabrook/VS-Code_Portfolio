@@ -14,7 +14,7 @@ function LinkedIn() {
   };
 
   return (
-    <main className="LinkedIn">
+    <section className="linkedin">
       <div className="linkedin-card">
         <img src={bannerImg} alt='LinkedIn banner' className='banner'></img>
         <img src={headshot} alt='Headshot' className='headshot'></img>
@@ -49,7 +49,7 @@ function LinkedIn() {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   )
 }
 
