@@ -1,11 +1,10 @@
-import '../styles/linkedin.css';
 
 // Images
-import bannerImg from '../images/linkedin/LinkedIn-Banner.png';
-import headshot from '../images/linkedin/1-backyard_headshot.jpeg'
-import shield from '../images/linkedin/LinkedIn-Shield.svg';
-import linkedinLogo from '../images/linkedin/Logo.png';
-import diamond from '../images/linkedin/diamond.svg';
+import bannerImg from '../../images/vs-code/linkedin/LinkedIn-Banner.png';
+import headshot from '../../images/vs-code/linkedin/1-backyard_headshot.jpeg'
+import shield from '../../images/vs-code/linkedin/LinkedIn-Shield.svg';
+import linkedinLogo from '../../images/vs-code/linkedin/Logo.png';
+import diamond from '../../images/vs-code/linkedin/diamond.svg';
 
 
 

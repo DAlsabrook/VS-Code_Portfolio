@@ -1,0 +1,303 @@
+/* Global styling, Nav bar, and footer styling in this file*/
+
+
+/* CSS Variables */
+:root {
+  --color-black: #000000;
+  /* Used for article text, sub-titles,and page titles */
+
+  --color-white: #ffffff;
+  /* Background of site, cards, text */
+
+  --color-davys-grey: #3D3941;
+  /* Used for footer, titles, and page subtitles */
+
+  --color-rust: #C7591A;
+
+  --color-beige: #EDEBD4;
+
+  --color-accent-yellow: #FFE75C;
+  /* Used for some buttons and title decoration */
+
+  --color-accent-blue: #3b6d8c;
+
+  --font-text: Verdana,
+    Arial,
+    Helvetica,
+    sans-serif;
+  /* Used for titles and some sub-titles */
+  --font-titles: fantasy;
+}
+
+/* Global styling for all main sections of page
+===============================================*/
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--color-davys-grey);
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  height: 85px;
+  padding-top: 15px;
+  z-index: 2;
+  position: fixed;
+  background-color: var(--color-white);
+}
+
+.content-container {
+  width: 90%;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 105px;
+  padding-bottom: 30px;
+  background-color: var(--color-white);
+  position: relative;
+  z-index: 1;
+}
+
+footer {
+  background-color: var(--color-black);
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./images/footercode.png");
+  background-size: 100%;
+  opacity: 0.2;
+  /* Adjust as needed */
+  z-index: -1;
+}
+
+/* All decoration and behavior removed from anchors */
+a {
+  text-decoration: none;
+  /* Remove underlines */
+  color: inherit;
+  /* Inherit color from parent */
+  cursor: pointer;
+  /* Change cursor to pointer on hover */
+}
+
+a:visited {
+  color: inherit;
+  /* Inherit color from parent, even after link is visited */
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  /* Remove underlines on hover/focus */
+  outline: none;
+  /* Remove outline on focus */
+}
+
+/* Remove all list styling */
+ul,
+ol {
+  list-style-type: none;
+  /* Remove bullet points or numbers */
+  padding: 0;
+  /* Remove padding */
+  margin: 0;
+  /* Remove margin */
+}
+
+li {
+  padding: 0;
+  /* Remove padding */
+  margin: 0;
+  /* Remove margin */
+}
+
+
+
+/* Mobile styles
+==========================================
+==========================================*/
+
+#root {
+  margin: auto;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* Push footer to the bottom */
+  height: 100%;
+  width: 100%;
+  /* No matter the content always take 100% of veiwport height */
+  font-family: var(--font-text);
+  background-color: var(--color-white);
+}
+
+.nav-bar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-logo {
+  font-family: 'Courier New', monospace;
+  font-size: larger;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+  width: 90vw;
+  /* Width also includes the hamburger for mobile */
+}
+
+.nav-logo-button {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+}
+
+.nav-logo-button img {
+  height: 90px;
+  margin-right: -5%;
+}
+
+.nav-links-open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  font-size: large;
+  z-index: 10;
+  transition: opacity 0.6s ease-out;
+  background-color: var(--color-white);
+}
+
+.nav-links-closed {
+  opacity: 0;
+  visibility: hidden;
+  height: 0vh;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 70%;
+}
+
+.nav-link-button {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20px;
+}
+
+.contact-btn {
+  background-color: var(--color-accent-yellow);
+  height: 60px;
+  width: 120px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--color-white);
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 20px;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+/* Tablet/Laptop/Desktop styles
+==========================================
+==========================================*/
+@media (min-width: 768px) {
+
+  .content-container {
+    max-width: 1440px;
+  }
+
+  .nav-bar-content {
+    flex-direction: row;
+  }
+
+  .nav-logo {
+    width: 350px;
+  }
+
+  .nav-links-closed {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 360px;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: -3%;
+  }
+
+  .nav-list>li {
+    margin-right: 20px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .footer-content {
+    flex-direction: row;
+  }
+}

@@ -1,4 +1,3 @@
-import '../styles/resume.css';
 
 function Resume() {
   return (

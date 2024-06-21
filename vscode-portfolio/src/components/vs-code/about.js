@@ -1,5 +1,3 @@
-import '../styles/about.css';
-
 function About() {
   return (
     <main className="about">

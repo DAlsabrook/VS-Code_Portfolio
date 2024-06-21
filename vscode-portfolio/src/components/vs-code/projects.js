@@ -1,17 +1,16 @@
-import '../styles/projects.css';
 import Swal from 'sweetalert2';
 import React, { useState, useEffect } from 'react';
 import { Octokit } from "@octokit/core";
 
 // Images
-import laptopWindow from "../images/laptop-window.png"
-import reactLogo from '../images/react_icon.svg';
-import cssLogo from '../images/css_icon.svg';
-import htmlLogo from '../images/html_icon.svg';
-import jsLogo from '../images/js_icon.svg';
-import pythonLogo from '../images/python-logo-only.png'
-import flaskLogo from '../images/Flask.png'
-import githubLogo from '../images/GitHub_Logo.png'
+import laptopWindow from "../../images/vs-code/laptop-window.png"
+import reactLogo from '../../images/vs-code/react_icon.svg';
+import cssLogo from '../../images/vs-code/css_icon.svg';
+import htmlLogo from '../../images/vs-code/html_icon.svg';
+import jsLogo from '../../images/vs-code/js_icon.svg';
+import pythonLogo from '../../images/vs-code/python-logo-only.png'
+import flaskLogo from '../../images/vs-code/Flask.png'
+import githubLogo from '../../images/vs-code/GitHub_Logo.png'
 
 // Used to set individual words colors in the return
 const ColoredText = ({ text, color }) => <span className={`${color}`}>{text}</span>;
