@@ -37,10 +37,16 @@ function App() {
       <Router>
         <ul className='main-page-tab-ul'>
           <li className='main-page-tab-li'>
-            <NavLink to="/vscode" className="tab-vs" style={{ color: "white", backgroundColor: "red", zIndex: "1000" }}>VS Code</NavLink>
+            <NavLink to="/vscode" className="tab-intro">Intro</NavLink>
           </li>
           <li className='main-page-tab-li'>
-            <NavLink to="/uxui" className="tab-uxui" style={{ color: "white", backgroundColor: "red", zIndex: "1000" }}>UXUI</NavLink>
+            <NavLink to="/uxui" className="tab-uxui">UXUI</NavLink>
+          </li>
+          <li className='main-page-tab-li'>
+            <NavLink to="/vscode" className="tab-vs">VS Code</NavLink>
+          </li>
+          <li className='main-page-tab-li'>
+            <NavLink to="/uxui" className="tab-backend">Backend</NavLink>
           </li>
         </ul>
         {/* Defines all routes for app.js and all children routes */}
