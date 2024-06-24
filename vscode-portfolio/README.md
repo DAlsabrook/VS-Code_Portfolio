@@ -1,5 +1,6 @@
 ### VS Code Themed Site - Pixel Perfect: Showcasing Design Consistency and Precision
 **Showcasing:**
+- **CSS**: Ability to use plain CSS
 - **Design Compliance**: Ability to follow a given design
 - **Design Consistency**: Ensure pixel-perfect accuracy with the VS Code design.
 **Features:**
@@ -9,6 +10,7 @@
 
 ### Great UX and UI Site - User-Centric Harmony: Crafting Seamless Experiences with UX/UI Excellence
 **Showcasing:**
+- **SASS**: Ability to use SASS
 - **User Testing Insights**: Add a section discussing my process for user testing and how feedback was incorporated.
 - **Animations and Transitions**: Use CSS animations and transitions to enhance the user experience without overwhelming the user.
 - **Accessibility Features**: Highlight how I've made the site accessible (e.g., ARIA roles, keyboard navigation).
@@ -16,6 +18,7 @@
 
 ### Collaborative Styling Platform - Dynamic Design Hub: Unleashing Backend Power for Collaborative Styling
 **Frontend Features:**
+- **Bootstrap**: Ability to use Bootstrap
 - **User Authentication:**
   - Allow users to sign up or log in using Firebase Authentication.
   - Manage user sessions and permissions.
