@@ -101,8 +101,8 @@ li {
   color: white;
 }
 
-.main-page-tab-ul > .main-page-tab-li > [class^="tab-"].active {
-  z-index: 1000 !important;
+.activeParent {
+  z-index: 1 !important;
 }
 
 /* All navlink items in li aka tabs */
@@ -121,7 +121,7 @@ li {
 [class^="tab-"]:hover,
 [class^="tab-"]:focus,
 [class^="tab-"].active {
-  transform: scale(1.3);
+  transform: scale(1.15);
 }
 
 .tab-intro {

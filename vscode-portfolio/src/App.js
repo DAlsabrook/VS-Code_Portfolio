@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Outlet, Route, Routes, NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
 
 // compenents
 import IntroTab from './components/intro/main.js';
@@ -39,22 +40,29 @@ import backendStyling from './styles/backend/backend-main.css'
 import './App.css';
 
 function App() {
+  // State to track the active link
+  const [activeLink, setActiveLink] = useState('/');
+
+  // Function to set active link
+  const handleSetActive = (path) => {
+    setActiveLink(path);
+  };
 
   return (
     <div className='App'>
       <Router>
         <ul className='main-page-tab-ul'>
-          <li className='main-page-tab-li'>
-            <NavLink to="/" className="tab-intro">Intro</NavLink>
+          <li className={`main-page-tab-li ${activeLink === '/' ? 'activeParent' : ''}`}>
+            <NavLink to="/" className="tab-intro" onClick={() => handleSetActive('/')} end>Intro</NavLink>
           </li>
-          <li className='main-page-tab-li'>
-            <NavLink to="/uxui" className="tab-uxui">UXUI</NavLink>
+          <li className={`main-page-tab-li ${activeLink === '/uxui' ? 'activeParent' : ''}`}>
+            <NavLink to="/uxui" className="tab-uxui" onClick={() => handleSetActive('/uxui')}>UXUI</NavLink>
           </li>
-          <li className='main-page-tab-li'>
-            <NavLink to="/vscode" className="tab-vs">VS Code</NavLink>
+          <li className={`main-page-tab-li ${activeLink === '/vscode' ? 'activeParent' : ''}`}>
+            <NavLink to="/vscode" className="tab-vs" onClick={() => handleSetActive('/vscode')}>VS Code</NavLink>
           </li>
-          <li className='main-page-tab-li'>
-            <NavLink to="/backend" className="tab-backend">Backend</NavLink>
+          <li className={`main-page-tab-li ${activeLink === '/backend' ? 'activeParent' : ''}`}>
+            <NavLink to="/backend" className="tab-backend" onClick={() => handleSetActive('/backend')}>Backend</NavLink>
           </li>
         </ul>
         {/* Defines all routes for app.js and all children routes */}
