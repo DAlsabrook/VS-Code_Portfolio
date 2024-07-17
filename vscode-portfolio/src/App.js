@@ -65,7 +65,7 @@ function App() {
           </Route>
           {/* VS Code version of the site */}
           <Route path="/vscode" element={<VsCode customStyle={vscodeMainStyles} />}>
-            <Route index path="/vscode" element={<Home customStyle={vscodeHomeStyles} />} />
+            <Route index element={<Home customStyle={vscodeHomeStyles} />} />
             <Route path="/vscode/about" element={<About customStyle={vscodeAboutStyles} />} />
             <Route path="/vscode/projects" element={<Projects customStyle={vscodeProjectStyles}/>} />
             <Route path="/vscode/resume" element={<Resume customStyle={vscodeResumeStyles} />} />
@@ -74,7 +74,7 @@ function App() {
           </Route>
           {/* UX UI version of the site */}
           <Route path="/uxui" element={<UXUI customStyle={uxuiMainStyles} />}>
-            <Route index path="/uxui" element={<Home customStyle={uxuiHomeStyles} />} />
+            <Route index element={<Home customStyle={uxuiHomeStyles} />} />
             <Route path="/uxui/about" element={<About customStyle={uxuiAboutStyles} />} />
             <Route path="/uxui/projects" element={<Projects customStyle={uxuiProjectStyles} />} />
             <Route path="/uxui/resume" element={<Resume customStyle={uxuiResumeStyles} />} />

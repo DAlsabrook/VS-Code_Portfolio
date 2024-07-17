@@ -171,12 +171,12 @@ function VsCode() {
           </div>}
           <div className={`main-container ${isExplorerVisible ? 'explorer-visible' : 'explorer-hidden'}`}>
           <ul className='files-tabs'>
-            <li><NavLink exact to="/vscode" activeClassName="active-tab" className="file-tab"><img className='lang-logo' src={jsonLogo} alt="json logo"></img> Home.json</NavLink></li>
-            <li><NavLink to="/vscode/about" activeClassName="active-tab" className="file-tab"><img className='lang-logo' src={htmlLogo} alt="html logo"></img> About.html</NavLink></li>
-            <li><NavLink to="/vscode/projects" activeClassName="active-tab" className="file-tab"><img className='lang-logo' src={jsLogo} alt="javascript logo"></img> Projects.js</NavLink></li>
-            <li><NavLink to="/vscode/github" activeClassName="active-tab" className="file-tab"><img className='lang-logo' src={cssLogo} alt="css logo"></img> GitHub.css</NavLink></li>
-            <li><NavLink to="/vscode/linkedin" activeClassName="active-tab" className="file-tab"><img className='lang-logo' src={reactLogo} alt="react logo"></img> LinkedIn.jsx</NavLink></li>
-            <li><NavLink to="/vscode/resume" activeClassName="active-tab" className="file-tab"><img className='lang-logo' src={markdownLogo} alt="markdown logo"></img> RESUME.md</NavLink></li>
+            <li><NavLink exact to="/vscode" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={jsonLogo} alt="json logo"></img> Home.json</NavLink></li>
+            <li><NavLink to="/vscode/about" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={htmlLogo} alt="html logo"></img> About.html</NavLink></li>
+            <li><NavLink to="/vscode/projects" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={jsLogo} alt="javascript logo"></img> Projects.js</NavLink></li>
+            <li><NavLink to="/vscode/github" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={cssLogo} alt="css logo"></img> GitHub.css</NavLink></li>
+            <li><NavLink to="/vscode/linkedin" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={reactLogo} alt="react logo"></img> LinkedIn.jsx</NavLink></li>
+            <li><NavLink to="/vscode/resume" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={markdownLogo} alt="markdown logo"></img> RESUME.md</NavLink></li>
           </ul>
           {/* Outlet tells the Router from parent where to load content form routes in app.js */}
           <Outlet />
