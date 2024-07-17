@@ -101,6 +101,10 @@ li {
   color: white;
 }
 
+.main-page-tab-ul > .main-page-tab-li > [class^="tab-"].active {
+  z-index: 1000 !important;
+}
+
 /* All navlink items in li aka tabs */
 [class^="tab-"] {
   display: flex;

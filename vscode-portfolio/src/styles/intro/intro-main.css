@@ -1,0 +1,5 @@
+.introTab {
+  background-color: var(--color-accent-yellow);
+  height: 100vh;
+  width: calc(100% - 50px);
+}

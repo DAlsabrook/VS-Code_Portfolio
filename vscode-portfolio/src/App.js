@@ -1,14 +1,19 @@
 import { BrowserRouter as Router, Outlet, Route, Routes, NavLink } from 'react-router-dom';
 
 // compenents
+import IntroTab from './components/intro/main.js';
 import VsCode from "./components/vs-code/main.js"
 import UXUI from "./components/UX-UI/main.js"
+import Backend from './components/backend/main.js';
 import Home from "./components/shared/home.js"
 import Projects from "./components/shared/projects.js"
 import About from "./components/shared/about.js"
 import GitHub from "./components/shared/github.js"
 import LinkedIn from "./components/shared/linkedin.js"
 import Resume from "./components/shared/resume.js"
+
+// Intro Tab styling
+import introTabStyles from './styles/intro/intro-main.css'
 
 // VS Code page styling
 import vscodeProjectStyles from './styles/vs-code/vs-projects.css';
@@ -28,6 +33,9 @@ import uxuiResumeStyles from './styles/UX-UI/uxui-resume.css';
 import uxuiMainStyles from './styles/UX-UI/uxui-main.css';
 import uxuiHomeStyles from './styles/UX-UI/uxui-home.css';
 
+// Backend version styling
+import backendStyling from './styles/backend/backend-main.css'
+
 import './App.css';
 
 function App() {
@@ -37,7 +45,7 @@ function App() {
       <Router>
         <ul className='main-page-tab-ul'>
           <li className='main-page-tab-li'>
-            <NavLink to="/vscode" className="tab-intro">Intro</NavLink>
+            <NavLink to="/" className="tab-intro">Intro</NavLink>
           </li>
           <li className='main-page-tab-li'>
             <NavLink to="/uxui" className="tab-uxui">UXUI</NavLink>
@@ -46,12 +54,15 @@ function App() {
             <NavLink to="/vscode" className="tab-vs">VS Code</NavLink>
           </li>
           <li className='main-page-tab-li'>
-            <NavLink to="/uxui" className="tab-backend">Backend</NavLink>
+            <NavLink to="/backend" className="tab-backend">Backend</NavLink>
           </li>
         </ul>
         {/* Defines all routes for app.js and all children routes */}
         {/* All children routes must start with path of parent */}
         <Routes>
+          {/* Intro tab */}
+          <Route path="/" element={<IntroTab customStyle={introTabStyles} />}>
+          </Route>
           {/* VS Code version of the site */}
           <Route path="/vscode" element={<VsCode customStyle={vscodeMainStyles} />}>
             <Route index path="/vscode" element={<Home customStyle={vscodeHomeStyles} />} />
@@ -69,6 +80,10 @@ function App() {
             <Route path="/uxui/resume" element={<Resume customStyle={uxuiResumeStyles} />} />
             <Route path="/uxui/linkedin" element={<LinkedIn customStyle={uxuiLinkedinStyles} />} />
             <Route path="/uxui/github" element={<GitHub customStyle={uxuiGithubStyles} />} />
+          </Route>
+          {/* Backend version of the site */}
+          <Route path="/backend" element={<Backend customStyle={backendStyling} />}>
+            {/* <Route index path="/backend/home" element={<Home customStyle={vscodeHomeStyles} />} /> */}
           </Route>
         </Routes>
         <Outlet />
