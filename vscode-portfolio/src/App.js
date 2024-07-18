@@ -28,8 +28,7 @@ import vscodeHomeStyles from './styles/vs-code/vs-home.css';
 // UX-UI page styling
 import uxuiProjectStyles from './styles/UX-UI/uxui-projects.css';
 import uxuiAboutStyles from './styles/UX-UI/uxui-about.css';
-import uxuiGithubStyles from './styles/UX-UI/uxui-github.css';
-import uxuiLinkedinStyles from './styles/UX-UI/uxui-linkedin.css';
+import uxuiContactStyles from './styles/UX-UI/uxui-contact.css';
 import uxuiResumeStyles from './styles/UX-UI/uxui-resume.css';
 import uxuiMainStyles from './styles/UX-UI/uxui-main.css';
 import uxuiHomeStyles from './styles/UX-UI/uxui-home.css';
@@ -86,8 +85,11 @@ function App() {
             <Route path="/uxui/about" element={<About customStyle={uxuiAboutStyles} />} />
             <Route path="/uxui/projects" element={<Projects customStyle={uxuiProjectStyles} />} />
             <Route path="/uxui/resume" element={<Resume customStyle={uxuiResumeStyles} />} />
-            <Route path="/uxui/linkedin" element={<LinkedIn customStyle={uxuiLinkedinStyles} />} />
-            <Route path="/uxui/github" element={<GitHub customStyle={uxuiGithubStyles} />} />
+            <Route path="/uxui/contact" element={
+              <>
+                <LinkedIn customStyle={uxuiContactStyles} />
+                <GitHub customStyle={uxuiContactStyles} />
+              </>}/>
           </Route>
           {/* Backend version of the site */}
           <Route path="/backend" element={<Backend customStyle={backendStyling} />}>

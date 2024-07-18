@@ -1,0 +1,12 @@
+.ux-ui .linkedin {
+  margin-top: 50px;
+}
+.ux-ui .linkedin-card {
+  width: 100%;
+  max-width: 1000px;
+  background-color: white;
+  border-radius: 20px;
+  padding-bottom: 20px;
+  overflow: hidden;
+  margin: auto;
+}

@@ -62,11 +62,10 @@ const GetLangs = ({ repo }) => {
         const percentage = ((bytes / totalBytes) * 100).toFixed(2);
         return <div key={`${repo}-${lang}`}>
           <p className='langs-name'>
-            <ColoredText text={`"${lang}"`} color="orange" />: <ColoredText text={`${Math.round(percentage).toString()}%`} color="light-yellow" />;
+            <ColoredText text={`"${lang}"`} color="langs-name-color" />: <ColoredText text={`${Math.round(percentage).toString()}%`} color="langs-percentage-color" />;
           </p>
           <div className='langs-bar-container'>
             <div className="langs-bar" style={{
-              backgroundColor: "var(--color-code-dark-blue)",
               width: `${percentage}%`
               }}>
             </div>

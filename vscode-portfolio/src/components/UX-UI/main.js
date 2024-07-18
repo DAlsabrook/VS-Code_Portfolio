@@ -45,11 +45,11 @@ function UXUI() {
             </div>
             <div className={`nav-links-${isNavOpen ? 'open' : 'closed'} col-5`}>
               <ul className='nav-list col-9'>
-                <li><Link to="/portfolio" className="nav-link-button" onClick={() => setIsNavOpen(false)}>Portfolio</Link></li>
-                <li><Link to="/resume" className="nav-link-button" onClick={() => setIsNavOpen(false)}>Resume</Link></li>
-                <li><Link to="/about" className="nav-link-button" onClick={() => setIsNavOpen(false)}>About</Link></li>
+                <li><Link to="/uxui/projects" className="nav-link-button" onClick={() => setIsNavOpen(false)}>Projects</Link></li>
+                <li><Link to="/uxui/resume" className="nav-link-button" onClick={() => setIsNavOpen(false)}>Resume</Link></li>
+                <li><Link to="/uxui/about" className="nav-link-button" onClick={() => setIsNavOpen(false)}>About</Link></li>
               </ul>
-              <Link to="/contact" className='contact-btn' onClick={() => setIsNavOpen(false)}>Contact</Link>
+              <Link to="/uxui/contact" className='contact-btn' onClick={() => setIsNavOpen(false)}>Contact</Link>
             </div>
           </div>
         </div>

@@ -171,7 +171,7 @@ function VsCode() {
           </div>}
           <div className={`main-container ${isExplorerVisible ? 'explorer-visible' : 'explorer-hidden'}`}>
           <ul className='files-tabs'>
-            <li><NavLink exact to="/vscode" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={jsonLogo} alt="json logo"></img> Home.json</NavLink></li>
+            <li><NavLink to="/vscode" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={jsonLogo} alt="json logo"></img> Home.json</NavLink></li>
             <li><NavLink to="/vscode/about" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={htmlLogo} alt="html logo"></img> About.html</NavLink></li>
             <li><NavLink to="/vscode/projects" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={jsLogo} alt="javascript logo"></img> Projects.js</NavLink></li>
             <li><NavLink to="/vscode/github" activeclassname="active-tab" className="file-tab"><img className='lang-logo' src={cssLogo} alt="css logo"></img> GitHub.css</NavLink></li>

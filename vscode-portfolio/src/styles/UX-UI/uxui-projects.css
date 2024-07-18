@@ -1,0 +1,234 @@
+/* Class styling for tags */
+
+/* Title font size */
+.ux-ui .large {
+  font-size: 1.3rem;
+}
+
+/* Styling for projects
+================================= */
+.ux-ui .portfolio-content {
+  margin: 40px 0;
+}
+
+
+.ux-ui .project-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  gap: 30px;
+  width: 90%;
+}
+
+.ux-ui .project {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  justify-content: space-between;
+  width: 90%;
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.ux-ui .project-img {
+  width: 80%;
+}
+
+.ux-ui .langs {
+  width: 100%;
+}
+
+/* Contains all langs items */
+.ux-ui .langs>div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  border: 1px solid var(--color-background-border);
+  border-radius: 10px;
+}
+
+/* Contains the names (langs-name) and bar(langs-bar) */
+.ux-ui .langs>div>div {
+  margin: 3px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 115%;
+}
+
+.ux-ui .langs-name {
+  margin: 0;
+  padding: 0;
+  width: 55%;
+  font-family: var(--font-code);
+  font-size: medium;
+  text-align: end;
+}
+
+/* %'s on github api for langs */
+.ux-ui .langs-percentage-color {
+  color: var(--color-davys-grey);
+}
+
+.ux-ui .langs-name-color {
+  color: var(--color-black);
+}
+
+.ux-ui .langs-bar-container {
+  width: 45%;
+  padding-left: 10px;
+}
+
+.ux-ui .langs-bar {
+  margin: 0;
+  padding: 0;
+  height: 5px;
+  border: 1px solid black;
+  background-color: var(--color-accent-yellow);
+}
+
+.ux-ui .project-text {
+  text-align: center;
+  font-size: medium;
+  font-weight: 400;
+  color: var(--color-text-light-grey);
+}
+
+.ux-ui .project-button {
+  position: relative;
+  height: 30px;
+  width: 50%;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: medium;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ux-ui .project-button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 47%;
+  border: 2px solid var(--color-button-blue);
+  height: 80%;
+  transition: height 0.3s ease, width 0.3s ease, left 0.3s ease;
+  z-index: -1;
+}
+
+.ux-ui .project-button:hover::before {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  background-color: var(--color-button-blue);
+}
+
+
+/* SweetAlert2 styling modals */
+.ux-ui .swal2-popup {
+  background-color: var(--color-background-dark);
+  color: var(--color-white);
+  border: 2px solid var(--color-background-border);
+  border-radius: 10px;
+}
+
+.ux-ui .swal2-title {
+  font-family: var(--font-code);
+  opacity: .7;
+}
+
+.ux-ui .modal-tech-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.ux-ui .modal-tech-list>p {
+  /* Individual tech */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  background-color: var(--color-background-light);
+  border: 1px solid var(--color-background-border);
+  margin: 0;
+  padding: 0;
+  height: 35px;
+  color: var(--color-code-orange);
+}
+
+.ux-ui .modal-tech-list>p>img {
+  /* logo for each "tech" */
+  height: 20px;
+  width: auto;
+  margin-right: 10px;
+  filter: brightness(0) invert(1);
+  opacity: .5;
+}
+
+.ux-ui .modal-text {
+  color: var(--color-text-light-grey);
+}
+
+/* Modal footer */
+.ux-ui .swal2-footer {
+  border-top: 1px solid var(--color-background-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ux-ui .swal2-footer>a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ux-ui .swal2-footer>a>img {
+  width: 100px;
+  opacity: .7;
+  filter: invert(1);
+  align-self: center;
+}
+
+/* Tablet
+==========================================
+==========================================*/
+@media (min-width: 480px) {
+  .ux-ui .project-group {
+    margin: auto;
+  }
+
+  .ux-ui .langs>div>div {
+    width: 110%;
+  }
+}
+
+/* Laptop
+=======================*/
+@media (min-width: 768px) {
+
+  /* switch to two columns for projects */
+  .ux-ui .project-group {
+    grid-template-columns: repeat(auto-fill, minmax(45%, 2fr));
+  }
+}
+
+/* Large screens
+=======================*/
+@media (min-width: 1440px) {
+  .ux-ui .project-group {
+    grid-template-columns: repeat(auto-fill, minmax(25%, 3fr));
+  }
+}

@@ -37,7 +37,7 @@ nav {
   display: flex;
   justify-content: center;
   top: 0;
-  height: 85px;
+  height: 100px;
   padding-top: 15px;
   z-index: 2;
   position: sticky;
@@ -66,7 +66,6 @@ footer {
   width: 100%;
   display: flex;
   justify-content: center;
-  position: sticky;
   bottom: 0;
   left: 0;
 }
@@ -100,6 +99,8 @@ footer::before {
   /* No matter the content always take 100% of veiwport height */
   font-family: var(--font-text);
   background-color: var(--color-white);
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .nav-bar-content {
@@ -108,6 +109,7 @@ footer::before {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 80px;
 }
 
 .nav-logo {
@@ -131,6 +133,10 @@ footer::before {
 .nav-logo-button img {
   height: 90px;
   margin-right: -5%;
+}
+
+.hamburger {
+  margin-right: 20px;
 }
 
 .nav-links-open {
@@ -183,6 +189,10 @@ footer::before {
   justify-content: center;
   align-items: center;
 }
+
+/* footer {
+  bottom: 0;
+} */
 
 .footer-content {
   display: flex;
