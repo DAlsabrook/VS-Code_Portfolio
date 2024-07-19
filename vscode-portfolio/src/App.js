@@ -54,11 +54,11 @@ function App() {
           <li className={`main-page-tab-li ${activeLink === '/' ? 'activeParent' : ''}`}>
             <NavLink to="/" className="tab-intro" onClick={() => handleSetActive('/')} end>Intro</NavLink>
           </li>
-          <li className={`main-page-tab-li ${activeLink === '/uxui' ? 'activeParent' : ''}`}>
-            <NavLink to="/uxui" className="tab-uxui" onClick={() => handleSetActive('/uxui')}>UXUI</NavLink>
-          </li>
           <li className={`main-page-tab-li ${activeLink === '/vscode' ? 'activeParent' : ''}`}>
             <NavLink to="/vscode" className="tab-vs" onClick={() => handleSetActive('/vscode')}>VS Code</NavLink>
+          </li>
+          <li className={`main-page-tab-li ${activeLink === '/uxui' ? 'activeParent' : ''}`}>
+            <NavLink to="/uxui" className="tab-uxui" onClick={() => handleSetActive('/uxui')}>UXUI</NavLink>
           </li>
           <li className={`main-page-tab-li ${activeLink === '/backend' ? 'activeParent' : ''}`}>
             <NavLink to="/backend" className="tab-backend" onClick={() => handleSetActive('/backend')}>Backend</NavLink>
