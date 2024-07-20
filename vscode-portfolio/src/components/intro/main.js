@@ -31,7 +31,7 @@ function IntroTab() {
             pointerEvents: 'none',
             alignItems: 'start'
           }}>
-          <div style={{
+          <div className='' style={{
             height: '100px',
             width: '2px',
             backgroundColor: 'grey',
@@ -40,57 +40,92 @@ function IntroTab() {
 
         {/* Intro page */}
         <ParallaxLayer
-          offset={-.1}
+          offset={0}
           speed={0}
           style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',
+            padding: '20%',
           }}>
-          <img src={headshot} style={{ width: '300px', borderRadius: '50%', border: '4px solid var(--color-background-dark' }}></img>
-          <p className='intro-name'>David Alsabrook</p>
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={0.68}
-          speed={0}
-          factor={4}
-          style={{
-            display: 'flex',
-            alignItems: 'start',
-            justifyContent: 'center',
-          }}>
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '61vw', marginLeft: '9vw', fontSize: '5vw', color: "var(--color-accent-yellow)", backgroundColor: 'var(--color-background-dark)' }}>
-            <p>I am a</p>
-            <p> Developer</p>
+          <div className='headshotDiv'>
+            <img src={headshot} className='headshotImg'></img>
+            <h1 className='name'>My name is David Alsabrook</h1>
+            <p className='elevatorPitch'>Welcome to my portfolio! As a developer, I thrive on coding and collaboration. I put my all into every project, delivering quality and creativity with every line of code. Dive into my work and experience my journey in tech.</p>
+            <p>My goal with this page is to showcase my front-end and back-end skills, as well as my ability to accurately follow and implement a design.</p>
+          </div>
+          <div className='blankDiv'>
+            <p>I specialize in</p>
+            <div className='fillTheBlankLine'></div>
           </div>
         </ParallaxLayer>
 
         {/* FULL-STACK */}
         <ParallaxLayer
-          offset={0.68}
+          offset={0.8}
           speed={-.75}
           factor={4}
           style={{
             display: 'flex',
             alignItems: 'start',
             justifyContent: 'center',
+            zIndex: '100',
           }}>
-          <p className='intro-name' style={{ fontSize: '5vw', color: "var(--color-accent-yellow)", backgroundColor: 'var(--color-background-dark)' }}>Full stack</p>
+          <p className='fullStack' style={{fontSize: '5vw', color: "var(--color-accent-yellow)", backgroundColor: 'var(--color-background-dark)' }}>Full stack development</p>
         </ParallaxLayer>
 
-
-          {/* BACKEND */}
+        {/* VSCODE */}
         <ParallaxLayer
-          offset={2.7}
+          offset={1.25}
           speed={-0}
           style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <p style={{ color: 'white' }}>Explore the site and dont forget to sign it at the end!</p>
+          <div className='vscodeContent'>
+            <div className='blankDiv'>
+              <p style={{color: 'white'}}>In</p>
+              <div className='fillTheBlankLine'></div>
+            </div>
+            <p style={{ color: 'white' }}>It is critical to take someone else's design and make a pixel perfect version</p>
+          </div>
+        </ParallaxLayer>
+
+        {/* UXUI */}
+        <ParallaxLayer
+          offset={2.01}
+          speed={-0}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <div className='uxuiContent'>
+            <div className='blankDiv'>
+              <p>In</p>
+              <div className='fillTheBlankLine black'></div>
+            </div>
+            <p>Giving users a modern site with intuitive design is a must</p>
+          </div>
+        </ParallaxLayer>
+
+        {/* BACKEND */}
+        <ParallaxLayer
+          offset={2.6}
+          speed={-0}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <div className='uxuiContent'>
+            <div className='blankDiv'>
+              <p style={{ color: 'white' }}>In</p>
+              <div className='fillTheBlankLine'></div>
+            </div>
+            <p style={{ color: 'white' }}>Seamlessly integrating a database makes site much more usefull</p>
+          </div>
         </ParallaxLayer>
 
         {/* Laptop */}
