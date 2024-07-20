@@ -1,20 +1,40 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react'; // Added useEffect to the import
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 
 // Images
 import laptop from '../../images/intro/laptop-mockup.png';
-import headshot from '../../images/vs-code/linkedin/1-backyard_headshot.jpeg'
-
-// I want as you scroll the background color matched each tab (yellow, white, grey, black)
-// Each specifically colored section talks about tech and goal for coresponding section
-
+import headshot from '../../images/vs-code/linkedin/1-backyard_headshot.jpeg';
 
 function IntroTab() {
   const parallax = useRef(null);
 
+  useEffect(() => {
+    function checkAndStartAnimations() {
+      const elementsToAnimate = document.querySelectorAll('.slideUp, .slideDown, .fadeIn, .slideInFromLeft, .slideInFromRight');
+      for (let i = 0; i < elementsToAnimate.length; i++) {
+        let el = elementsToAnimate[i];
+        const elementTop = el.getBoundingClientRect().top;
+
+        if (elementTop < window.innerHeight ) {
+          el.classList.add('start');
+        }
+      }
+    }
+
+    function handleScroll() {
+      requestAnimationFrame(checkAndStartAnimations);
+    }
+    const parallaxMain = document.getElementsByClassName('parallaxMain');
+    parallaxMain[0].addEventListener('scroll', handleScroll);
+    setTimeout(checkAndStartAnimations, 0);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
   return (
     <div className="introTab">
-      <Parallax ref={parallax} pages={4} style={{width: 'calc(100% - 50px)'}}>
+      <Parallax ref={parallax} className='parallaxMain' pages={4} style={{width: 'calc(100% - 50px)'}}>
         {/* Backgrounds for each section */}
         <ParallaxLayer offset={0} speed={1} style={{ backgroundColor: 'var(--color-accent-yellow)' }} factor={2} onClick={() => parallax.current.scrollTo(1)} />
         <ParallaxLayer offset={1} speed={1} style={{ backgroundColor: 'var(--color-background-dark)' }} factor={2} onClick={() => parallax.current.scrollTo(2)} />
@@ -48,15 +68,27 @@ function IntroTab() {
             alignItems: 'center',
             padding: '20%',
           }}>
-          <div className='headshotDiv darkGrey'>
-            <img src={headshot} className='headshotImg'></img>
-            <h1 className='name'>My name is David Alsabrook</h1>
-            <p className='elevatorPitch'>Welcome to my portfolio! As a developer, I thrive on coding and collaboration. I put my all into every project, delivering quality and creativity with every line of code. Dive into my work and experience my journey in tech.</p>
+          <div className='headshotDiv darkGrey '>
+            <img src={headshot} className='headshotImg slideDown'></img>
+            <h1 className='name slideUp'>My name is David Alsabrook</h1>
+            <p className='elevatorPitch slideUp'>Welcome to my portfolio! As a developer, I thrive on coding and collaboration. I put my all into every project, delivering quality and creativity with every line of code. Dive into my work and experience my journey in tech.</p>
             <p>My goal with this page is to showcase my front-end and back-end skills, as well as my ability to accurately follow and implement a design.</p>
           </div>
+        </ParallaxLayer>
+
+        <ParallaxLayer
+          offset={0.8}
+          speed={0}
+          factor={4}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'start',
+          }}>
           <div className='blankDiv'>
-            <p>I specialize in</p>
-            <div className='fillTheBlankLine'></div>
+            <div className='fillTheBlankLine black slideInFromLeft'></div>
+            <p className='blankIs slideInFromRight'>&nbsp;&nbsp;is</p>
           </div>
         </ParallaxLayer>
 
@@ -71,7 +103,7 @@ function IntroTab() {
             justifyContent: 'center',
             zIndex: '100',
           }}>
-          <p className='fullStack' style={{fontSize: '5vw', color: "var(--color-accent-yellow)", backgroundColor: 'var(--color-background-dark)' }}>Full stack development</p>
+          <p className='fullStack' style={{margin: '0',fontSize: '5vw', color: "var(--color-accent-yellow)", backgroundColor: 'var(--color-background-dark)' }}>Full stack development</p>
         </ParallaxLayer>
 
         {/* VSCODE */}
@@ -85,8 +117,8 @@ function IntroTab() {
           }}>
           <div className='vscodeContent'>
             <div className='blankDiv'>
-              <p style={{color: 'white'}}>In</p>
-              <div className='fillTheBlankLine'></div>
+              <div className='fillTheBlankLine  slideInFromLeft'></div>
+              <p className='blankIs white slideInFromRight'>&nbsp;&nbsp;is</p>
             </div>
             <p style={{ color: 'white' }}>It is critical to take someone else's design and make a pixel perfect version</p>
           </div>
@@ -102,9 +134,9 @@ function IntroTab() {
             justifyContent: 'center',
           }}>
           <div className='uxuiContent darkGrey'>
-            <div className='blankDiv darkGrey'>
-              <p>In</p>
-              <div className='fillTheBlankLine black'></div>
+            <div className='blankDiv'>
+              <div className='fillTheBlankLine black slideInFromLeft'></div>
+              <p className='blankIs slideInFromRight'>&nbsp;&nbsp;is</p>
             </div>
             <p>Giving users a modern site with intuitive design is a must</p>
           </div>
@@ -112,7 +144,7 @@ function IntroTab() {
 
         {/* BACKEND */}
         <ParallaxLayer
-          offset={2.6}
+          offset={2.62}
           speed={-0}
           style={{
             display: 'flex',
@@ -121,8 +153,8 @@ function IntroTab() {
           }}>
           <div className='uxuiContent'>
             <div className='blankDiv'>
-              <p style={{ color: 'white' }}>In</p>
               <div className='fillTheBlankLine'></div>
+              <p className='blankIs white'>&nbsp;&nbsp;is</p>
             </div>
             <p style={{ color: 'white' }}>Seamlessly integrating a database makes site much more usefull</p>
           </div>

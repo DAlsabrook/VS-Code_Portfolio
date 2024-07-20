@@ -1,19 +1,100 @@
 /* whole page */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.slideUp.start {
+  animation: slideUp 2s ease-out forwards;
+}
+
+.slideDown.start {
+  animation: slideDown 2s ease-out forwards;
+}
+
+.fadeIn.start {
+  animation: fadeIn 2s ease-out forwards;
+}
+
+.slideInFromLeft.start {
+  animation: slideInFromLeft 2s ease-out forwards;
+}
+
+.slideInFromRight.start {
+  animation: slideInFromRight 2s ease-out forwards;
+}
+
 .blankDiv {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: end;
   justify-content: space-between;
-  height: 100px;
+  height: 50px;
 }
+
 .fillTheBlankLine {
   height: 2px;
   background-color: #fff;
   width: 55vw;
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+
+.blankIs {
+  font-size: 5vw;
 }
 
 .black {
   background-color: black !important;
+}
+
+.white {
+  color: white;
 }
 
 /* Intro */
