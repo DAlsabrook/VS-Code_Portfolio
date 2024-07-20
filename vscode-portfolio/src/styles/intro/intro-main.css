@@ -40,6 +40,10 @@
 
 }
 
+.darkGrey {
+  color: var(--color-background-dark);
+}
+
 .name {
   width: 60vw;
   text-align: center;

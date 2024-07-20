@@ -48,7 +48,7 @@ function IntroTab() {
             alignItems: 'center',
             padding: '20%',
           }}>
-          <div className='headshotDiv'>
+          <div className='headshotDiv darkGrey'>
             <img src={headshot} className='headshotImg'></img>
             <h1 className='name'>My name is David Alsabrook</h1>
             <p className='elevatorPitch'>Welcome to my portfolio! As a developer, I thrive on coding and collaboration. I put my all into every project, delivering quality and creativity with every line of code. Dive into my work and experience my journey in tech.</p>
@@ -101,8 +101,8 @@ function IntroTab() {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <div className='uxuiContent'>
-            <div className='blankDiv'>
+          <div className='uxuiContent darkGrey'>
+            <div className='blankDiv darkGrey'>
               <p>In</p>
               <div className='fillTheBlankLine black'></div>
             </div>
