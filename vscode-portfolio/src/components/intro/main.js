@@ -10,12 +10,12 @@ function IntroTab() {
 
   useEffect(() => {
     function checkAndStartAnimations() {
-      const elementsToAnimate = document.querySelectorAll('.slideUp, .slideDown, .fadeIn, .slideInFromLeft, .slideInFromRight');
+      const elementsToAnimate = document.querySelectorAll('.slideUp:not(.start), .slideDown:not(.start), .fadeIn:not(.start), .slideInFromLeft:not(.start), .slideInFromRight:not(.start)');
       for (let i = 0; i < elementsToAnimate.length; i++) {
         let el = elementsToAnimate[i];
         const elementTop = el.getBoundingClientRect().top;
 
-        if (elementTop < window.innerHeight ) {
+        if (elementTop < (window.innerHeight + 50) ) {
           el.classList.add('start');
         }
       }
@@ -72,7 +72,7 @@ function IntroTab() {
             <img src={headshot} className='headshotImg slideDown'></img>
             <h1 className='name slideUp'>My name is David Alsabrook</h1>
             <p className='elevatorPitch slideUp'>Welcome to my portfolio! As a developer, I thrive on coding and collaboration. I put my all into every project, delivering quality and creativity with every line of code. Dive into my work and experience my journey in tech.</p>
-            <p>My goal with this page is to showcase my front-end and back-end skills, as well as my ability to accurately follow and implement a design.</p>
+            <p className='slideUp'>My goal with this page is to showcase my front-end and back-end skills, as well as my ability to accurately follow and implement a design.</p>
           </div>
         </ParallaxLayer>
 
