@@ -7,6 +7,8 @@ import headshot from '../../images/vs-code/linkedin/1-backyard_headshot.jpeg';
 import leftWire from '../../images/intro/leftWire.png';
 import rightWire from '../../images/intro/rightWire.png';
 import bothWire from '../../images/intro/bothWire.png';
+import laptopWire from '../../images/intro/laptopWire.png';
+import cellWire from '../../images/intro/cellWire.png';
 
 function IntroTab() {
   const parallax = useRef(null);
@@ -207,6 +209,31 @@ function IntroTab() {
           }}>
           <div className="dataLine"></div>
         </ParallaxLayer>
+
+        {/* laptop wire */}
+        <ParallaxLayer
+          offset={.7}
+          speed={0.2}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <img src={laptopWire} className='slideInFromLeft' style={{width: '90%', rotate: '20deg'}}></img>
+        </ParallaxLayer>
+
+        {/* cell wire */}
+        <ParallaxLayer
+          offset={1.7}
+          speed={0.2}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <img src={cellWire} style={{ width: '75%' }}></img>
+        </ParallaxLayer>
+
       </Parallax>
     </div>
   );
