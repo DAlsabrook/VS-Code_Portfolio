@@ -4,6 +4,9 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 // Images
 import laptop from '../../images/intro/laptop-mockup.png';
 import headshot from '../../images/vs-code/linkedin/1-backyard_headshot.jpeg';
+import leftWire from '../../images/intro/leftWire.png';
+import rightWire from '../../images/intro/rightWire.png';
+import bothWire from '../../images/intro/bothWire.png';
 
 function IntroTab() {
   const parallax = useRef(null);
@@ -31,16 +34,35 @@ function IntroTab() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  function BinaryLine(textColor, bgColor) {
+    const binaryString = '0100010001100001';
+    const doubledBinaryString = binaryString.repeat(10);
+
+    return (
+      <div className='binary' style={{ backgroundColor: `${bgColor}`, color: `${textColor}`}}>{doubledBinaryString}</div>
+    );
+  }
+
 
   return (
     <div className="introTab">
       <Parallax ref={parallax} className='parallaxMain' pages={4} style={{width: 'calc(100% - 50px)'}}>
         {/* Backgrounds for each section */}
-        <ParallaxLayer offset={0} speed={1} style={{ backgroundColor: 'var(--color-accent-yellow)' }} factor={2} onClick={() => parallax.current.scrollTo(1)} />
-        <ParallaxLayer offset={1} speed={1} style={{ backgroundColor: 'var(--color-background-dark)' }} factor={2} onClick={() => parallax.current.scrollTo(2)} />
-        <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: 'white' }} factor={2} onClick={() => parallax.current.scrollTo(3)} />
-        <ParallaxLayer offset={3} speed={1} style={{ backgroundColor: 'black' }} factor={2} onClick={() => parallax.current.scrollTo(0)} />
-
+        <ParallaxLayer offset={0} speed={1} style={{ backgroundColor: 'var(--color-accent-yellow)' }} factor={2} onClick={() => parallax.current.scrollTo(1)}>
+          <img src={leftWire} className='introLeftWire'></img>
+          <img src={bothWire} className='introBothWire'></img>
+          {BinaryLine('var(--color-background-dark)', 'var(--color-accent-yellow)')}
+        </ParallaxLayer>
+        <ParallaxLayer offset={1} speed={1} style={{ backgroundColor: 'var(--color-background-dark)' }} factor={2} onClick={() => parallax.current.scrollTo(2)}>
+          {BinaryLine('white', 'var(--color-background-dark)')}
+        </ParallaxLayer>
+        <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: 'white' }} factor={2} onClick={() => parallax.current.scrollTo(3)}>
+          <img src={rightWire} className='uxuiRightWire'></img>
+          {BinaryLine('black', 'white')}
+        </ParallaxLayer>
+        <ParallaxLayer offset={3} speed={1} style={{ backgroundColor: 'black' }} factor={2} onClick={() => parallax.current.scrollTo(0)}>
+          <img src={leftWire} className='backendLeftWire'></img>
+        </ParallaxLayer>
         {/* Tab indicator line */}
         <ParallaxLayer
           offset={0.04}
@@ -74,6 +96,7 @@ function IntroTab() {
             <p className='elevatorPitch slideUp'>Welcome to my portfolio! As a developer, I thrive on coding and collaboration. I put my all into every project, delivering quality and creativity with every line of code. Dive into my work and experience my journey in tech.</p>
             <p className='slideUp'>My goal with this page is to showcase my front-end and back-end skills, as well as my ability to accurately follow and implement a design.</p>
           </div>
+
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -103,7 +126,7 @@ function IntroTab() {
             justifyContent: 'center',
             zIndex: '100',
           }}>
-          <p className='fullStack' style={{margin: '0',fontSize: '5vw', color: "var(--color-accent-yellow)", backgroundColor: 'var(--color-background-dark)' }}>Full stack development</p>
+          <p className='fullStack'>Full stack development</p>
         </ParallaxLayer>
 
         {/* VSCODE */}

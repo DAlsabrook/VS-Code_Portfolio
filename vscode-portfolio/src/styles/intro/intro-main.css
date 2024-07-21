@@ -1,4 +1,28 @@
 /* whole page */
+
+@keyframes moveData {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes moveBinary {
+  from{
+    transform: translate(0);
+  }
+  to{
+    transform: translate(-177px);
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -80,7 +104,7 @@
 .fillTheBlankLine {
   height: 2px;
   background-color: #fff;
-  width: 55vw;
+  width: 40vw;
   margin-bottom: 15px;
   margin-left: 20px;
 }
@@ -97,11 +121,55 @@
   color: white;
 }
 
+/* Binary lines */
+@import url('https: //fonts.googleapis.com/css2?family=Audiowide&display=swap');
+.binary {
+  position: absolute;
+  bottom: -6px;
+  width: 100vw;
+  text-align: center;
+  animation: moveBinary 5s linear infinite;
+  font-size: 20px;
+  font-family: 'Audiowide', monospace;
+}
+
+.bineryDiv {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  text-align: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.fullStack {
+  margin: 0;
+  font-size: 6vw;
+  color: white;
+  width: 35vw;
+  text-align: center;
+}
+
 /* Intro */
 .introTab {
   background-color: var(--color-black);
   height: 100vh;
   width: calc(100% - 40px);
+}
+
+.introLeftWire{
+  width: 30%;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.introBothWire {
+  width: 25%;
+  transform: scaleY(-1);
+  rotate: -45deg;
+  margin-left: 62vw;
+  margin-top: -100px;
 }
 
 .headshotDiv {
@@ -149,19 +217,18 @@
   align-items: center;
   text-align: center;
 }
+
+.uxuiRightWire {
+  width: 30%;
+  margin-top: 20px;
+  margin-left: 60vw;
+}
 /* BACKEND */
-@keyframes moveData {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
+.backendLeftWire {
+  width: 25%;
+  margin-left: 20px;
+  margin-top: 20px;
+  filter: invert(100%);
 }
 
 .dataLine {
