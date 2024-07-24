@@ -128,6 +128,9 @@ function IntroTab() {
             justifyContent: 'center',
             zIndex: '100',
           }}>
+            {/* In here create all "stack" images or elements and change their display
+            hidden based on scroll  position. each one fading in as you "land" fullstack
+            on that sections blank line */}
           <p className='fullStack'>Full stack development</p>
         </ParallaxLayer>
 
@@ -148,7 +151,6 @@ function IntroTab() {
             <p style={{ color: 'white' }}>It is critical to take someone else's design and make a pixel perfect version</p>
           </div>
         </ParallaxLayer>
-
         {/* UXUI */}
         <ParallaxLayer
           offset={2.01}
@@ -233,6 +235,19 @@ function IntroTab() {
           }}>
           <img src={cellWire} style={{ width: '75%' }}></img>
         </ParallaxLayer>
+
+        {/* Section 2 with Element 1 */}
+        {/* <ParallaxLayer
+          offset={2.6}
+          speed={-.73}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '20px'
+          }}>
+          <div className="element" style={{border: '3px solid white'}}>Element 1</div>
+        </ParallaxLayer> */}
 
       </Parallax>
     </div>
