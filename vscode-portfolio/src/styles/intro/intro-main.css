@@ -1,19 +1,5 @@
 /* whole page */
 
-@keyframes moveData {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 @keyframes moveBinary {
   from{
     transform: translate(0);
@@ -93,32 +79,25 @@
   animation: slideInFromRight 2s ease-out forwards;
 }
 
-.blankDiv {
-  display: flex;
-  flex-direction: row;
-  align-items: end;
-  justify-content: space-between;
-  height: 50px;
-}
-
-.fillTheBlankLine {
-  height: 2px;
-  background-color: #fff;
-  width: 40vw;
-  margin-bottom: 15px;
-  margin-left: 20px;
-}
-
-.blankIs {
-  font-size: 5vw;
-}
-
 .black {
   background-color: black !important;
 }
 
 .white {
   color: white;
+}
+
+/* General styling */
+.parallaxBackground {
+  padding: 0;
+  margin: 0;
+}
+
+.contentDiv {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Binary lines */
@@ -143,33 +122,30 @@
   padding: 0;
 }
 
-.fullStack {
-  margin: 0;
-  font-size: 6vw;
-  color: white;
-  width: 35vw;
-  text-align: center;
-}
-
 /* Intro */
 .introTab {
   background-color: var(--color-black);
-  height: 100vh;
-  width: calc(100% - 40px);
+  height: 100%;
+  width: calc(100% - 35px);
 }
 
 .introLeftWire{
   width: 30%;
+  max-width: 200px;
+  position: absolute;
+  left: 0;
   margin-top: 20px;
   margin-left: 20px;
 }
 
 .introBothWire {
-  width: 25%;
+  width: 30%;
+  max-width: 150px;
   transform: scaleY(-1);
   rotate: -45deg;
-  margin-left: 62vw;
-  margin-top: -100px;
+  position: absolute;
+  top: 0;
+  right: 5px;
 }
 
 .headshotDiv {
@@ -179,6 +155,7 @@
   align-items: center;
   justify-content: space-around;
   margin-bottom: 50px;
+  margin-top: 20%;
 }
 
 .headshotImg {
@@ -220,21 +197,18 @@
 
 .uxuiRightWire {
   width: 30%;
+  top: 0;
   margin-top: 20px;
   margin-left: 60vw;
 }
 /* BACKEND */
 .backendLeftWire {
   width: 25%;
+  position: absolute;
+  left: 0;
+  top: 0;
   margin-left: 20px;
   margin-top: 20px;
   filter: invert(100%);
 }
 
-.dataLine {
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(270deg, #000, #000, #000, #fff, #000, #000, #000);
-  background-size: 200% 200%;
-  animation: moveData 6s linear infinite;
-}

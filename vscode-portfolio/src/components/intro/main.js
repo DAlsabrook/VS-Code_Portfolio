@@ -48,146 +48,52 @@ function IntroTab() {
 
   return (
     <div className="introTab">
-      <Parallax ref={parallax} className='parallaxMain' pages={4} style={{width: 'calc(100% - 50px)'}}>
-        {/* Backgrounds for each section */}
-        <ParallaxLayer offset={0} speed={1} style={{ backgroundColor: 'var(--color-accent-yellow)' }} factor={2} onClick={() => parallax.current.scrollTo(1)}>
-          <img src={leftWire} className='introLeftWire'></img>
-          <img src={bothWire} className='introBothWire'></img>
-          {BinaryLine('var(--color-background-dark)', 'var(--color-accent-yellow)')}
-        </ParallaxLayer>
-        <ParallaxLayer offset={1} speed={1} style={{ backgroundColor: 'var(--color-background-dark)' }} factor={2} onClick={() => parallax.current.scrollTo(2)}>
-          {BinaryLine('white', 'var(--color-background-dark)')}
-        </ParallaxLayer>
-        <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: 'white' }} factor={2} onClick={() => parallax.current.scrollTo(3)}>
-          <img src={rightWire} className='uxuiRightWire'></img>
-          {BinaryLine('black', 'white')}
-        </ParallaxLayer>
-        <ParallaxLayer offset={3} speed={1} style={{ backgroundColor: 'black' }} factor={2} onClick={() => parallax.current.scrollTo(0)}>
-          <img src={leftWire} className='backendLeftWire'></img>
-        </ParallaxLayer>
-        {/* Tab indicator line */}
-        <ParallaxLayer
-          offset={0.04}
-          speed={-1.24}
-          factor={4}
-          style={{
-            display: 'flex',
-            pointerEvents: 'none',
-            alignItems: 'start'
-          }}>
-          <div className='' style={{
-            height: '100px',
-            width: '2px',
-            backgroundColor: 'grey',
-          }}></div>
-        </ParallaxLayer>
-
-        {/* Intro page */}
-        <ParallaxLayer
-          offset={0}
-          speed={0}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: '20%',
-          }}>
-          <div className='headshotDiv darkGrey '>
-            <img src={headshot} className='headshotImg slideDown'></img>
-            <h1 className='name slideUp'>My name is David Alsabrook</h1>
-            <p className='elevatorPitch slideUp'>Welcome to my portfolio! As a developer, I thrive on coding and collaboration. I put my all into every project, delivering quality and creativity with every line of code. Dive into my work and experience my journey in tech.</p>
-            <p className='slideUp'>My goal with this page is to showcase my front-end and back-end skills, as well as my ability to accurately follow and implement a design.</p>
-          </div>
-
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={0.8}
-          speed={0}
-          factor={4}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'start',
-          }}>
-          <div className='blankDiv'>
-            <div className='fillTheBlankLine black slideInFromLeft'></div>
-            <p className='blankIs slideInFromRight'>&nbsp;&nbsp;is</p>
-          </div>
-        </ParallaxLayer>
-
-        {/* FULL-STACK */}
-        <ParallaxLayer
-          offset={0.8}
-          speed={-.75}
-          factor={4}
-          style={{
-            display: 'flex',
-            alignItems: 'start',
-            justifyContent: 'center',
-            zIndex: '100',
-          }}>
-            {/* In here create all "stack" images or elements and change their display
-            hidden based on scroll  position. each one fading in as you "land" fullstack
-            on that sections blank line */}
-          <p className='fullStack'>Full stack development</p>
-        </ParallaxLayer>
-
-        {/* VSCODE */}
-        <ParallaxLayer
-          offset={1.25}
-          speed={-0}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <div className='vscodeContent'>
-            <div className='blankDiv'>
-              <div className='fillTheBlankLine  slideInFromLeft'></div>
-              <p className='blankIs white slideInFromRight'>&nbsp;&nbsp;is</p>
+      <Parallax ref={parallax} className='parallaxMain' pages={2.5} style={{width: 'calc(100% - 50px)'}}>
+        {/* Intro */}
+        <ParallaxLayer className='parallaxBackground' offset={0} factor={1} speed={1} style={{ backgroundColor: 'var(--color-accent-yellow)' }} onClick={() => parallax.current.scrollTo(1)}>
+          <div className='contentDiv'>
+            <img src={leftWire} className='introLeftWire'></img>
+            <img src={bothWire} className='introBothWire'></img>
+            <div className='headshotDiv darkGrey '>
+              <img src={headshot} className='headshotImg slideDown'></img>
+              <h1 className='name slideUp'>My name is David Alsabrook</h1>
+              <p className='elevatorPitch slideUp'>Welcome to my portfolio! As a developer, I thrive on coding and collaboration. I put my all into every project, delivering quality and creativity with every line of code. Dive into my work and experience my journey in tech.</p>
+              <p className='slideUp'>My goal with this page is to showcase my front-end and back-end skills, as well as my ability to accurately follow and implement a design.</p>
             </div>
+            {BinaryLine('var(--color-background-dark)', 'var(--color-accent-yellow)')}
+          </div>
+        </ParallaxLayer>
+
+        {/* VSCode */}
+        <ParallaxLayer className='parallaxBackground' offset={.999} factor={1} speed={1} style={{ backgroundColor: 'var(--color-background-dark)' }} onClick={() => parallax.current.scrollTo(2)}>
+          <div className='vscodeContent contentDiv'>
             <p style={{ color: 'white' }}>It is critical to take someone else's design and make a pixel perfect version</p>
+            {BinaryLine('white', 'var(--color-background-dark)')}
           </div>
         </ParallaxLayer>
+
         {/* UXUI */}
-        <ParallaxLayer
-          offset={2.01}
-          speed={-0}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <div className='uxuiContent darkGrey'>
-            <div className='blankDiv'>
-              <div className='fillTheBlankLine black slideInFromLeft'></div>
-              <p className='blankIs slideInFromRight'>&nbsp;&nbsp;is</p>
+        <ParallaxLayer className='parallaxBackground' offset={1} factor={1} speed={1} style={{ backgroundColor: 'white' }} onClick={() => parallax.current.scrollTo(3)}>
+          <div className='contentDiv'>
+            <img src={rightWire} className='uxuiRightWire'></img>
+            <div className='uxuiContent darkGrey'>
+              <p>Giving users a modern site with intuitive design is a must</p>
             </div>
-            <p>Giving users a modern site with intuitive design is a must</p>
+            {BinaryLine('black', 'white')}
           </div>
         </ParallaxLayer>
 
-        {/* BACKEND */}
-        <ParallaxLayer
-          offset={2.62}
-          speed={-0}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <div className='uxuiContent'>
-            <div className='blankDiv'>
-              <div className='fillTheBlankLine'></div>
-              <p className='blankIs white'>&nbsp;&nbsp;is</p>
+        {/* Back-end */}
+        <ParallaxLayer className='parallaxBackground' offset={1.999} factor={1} speed={1} style={{ backgroundColor: 'black' }} onClick={() => parallax.current.scrollTo(0)}>
+          <div className='contentDiv'>
+            <img src={leftWire} className='backendLeftWire'></img>
+            <div className='backEndContent'>
+              <p style={{ color: 'white' }}>Seamlessly integrating a database makes site much more usefull</p>
             </div>
-            <p style={{ color: 'white' }}>Seamlessly integrating a database makes site much more usefull</p>
           </div>
         </ParallaxLayer>
 
-        {/* Laptop */}
+        {/* Bottom Laptop */}
         <ParallaxLayer
           offset={3.2}
           speed={.4}
@@ -200,20 +106,8 @@ function IntroTab() {
           <img src={laptop} style={{ width: '100vw', opacity: "100%" }} />
         </ParallaxLayer>
 
-        {/* Moving bottom line */}
-        <ParallaxLayer
-          offset={3.5}
-          speed={0.5}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <div className="dataLine"></div>
-        </ParallaxLayer>
-
         {/* laptop wire */}
-        <ParallaxLayer
+        {/* <ParallaxLayer
           offset={.7}
           speed={0.2}
           style={{
@@ -222,10 +116,10 @@ function IntroTab() {
             justifyContent: 'center',
           }}>
           <img src={laptopWire} className='slideInFromLeft' style={{width: '90%', rotate: '20deg'}}></img>
-        </ParallaxLayer>
+        </ParallaxLayer> */}
 
         {/* cell wire */}
-        <ParallaxLayer
+        {/* <ParallaxLayer
           offset={1.7}
           speed={0.2}
           style={{
@@ -234,19 +128,6 @@ function IntroTab() {
             justifyContent: 'center',
           }}>
           <img src={cellWire} style={{ width: '75%' }}></img>
-        </ParallaxLayer>
-
-        {/* Section 2 with Element 1 */}
-        {/* <ParallaxLayer
-          offset={2.6}
-          speed={-.73}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '20px'
-          }}>
-          <div className="element" style={{border: '3px solid white'}}>Element 1</div>
         </ParallaxLayer> */}
 
       </Parallax>
