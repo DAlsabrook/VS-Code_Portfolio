@@ -82,7 +82,7 @@
 /* General styling */
 .introTab {
   background-color: var(--color-accent-yellow);
-  width: calc(100% - 50px);
+  width: calc(100% - 45px);
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;

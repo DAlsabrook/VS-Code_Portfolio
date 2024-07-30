@@ -59,16 +59,17 @@ function IntroTab() {
       </div>
 
       {/* VSCode */}
-      <div className='introVscode introSection slideUp'>
-        <p style={{ color: 'white' }}>It is critical to take someone else's design and make a pixel perfect version</p>
+      <div className='introVscode introSection slideUp' style={{ color: 'white' }}>
+        <h2>Design</h2>
+        <p>It is critical to take someone else's design and make a pixel perfect version</p>
         {BinaryLine('white', 'var(--color-background-dark)')}
       </div>
 
       {/* UXUI */}
-      <img src={rightWire} className='uxuiRightWire slideUp'></img>
       <div className='introUxui introSection slideUp'>
         <img src={rightWire} className='uxuiRightWire'></img>
-        <div className='uxuiContent darkGrey'>
+        <div className='uxuiContent'>
+          <h2>UX-UI</h2>
           <p>Giving users a modern site with intuitive design is a must</p>
         </div>
         {BinaryLine('black', 'white')}
@@ -77,8 +78,9 @@ function IntroTab() {
       {/* Back-end */}
       <div className='introBackend introSection slideUp'>
         <img src={leftWire} className='backendLeftWire'></img>
-        <div className='backEndContent'>
-          <p style={{ color: 'white' }}>Seamlessly integrating a database makes site much more usefull</p>
+        <div className='backEndContent' style={{ color: 'white' }}>
+          <h2>Back end</h2>
+          <p>Seamlessly integrating a database makes site much more usefull</p>
         </div>
         <img src={laptop} style={{ width: '100vw', opacity: "100%" }} />
       </div>
