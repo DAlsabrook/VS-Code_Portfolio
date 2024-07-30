@@ -73,7 +73,7 @@ function IntroTab() {
         </ParallaxLayer>
 
         {/* UXUI */}
-        <ParallaxLayer className='parallaxBackground' offset={1} factor={1} speed={1} style={{ backgroundColor: 'white' }} onClick={() => parallax.current.scrollTo(3)}>
+        <ParallaxLayer className='parallaxBackground uxuiSection' offset={1} factor={1} speed={1}  onClick={() => parallax.current.scrollTo(3)}>
           <div className='contentDiv'>
             <img src={rightWire} className='uxuiRightWire'></img>
             <div className='uxuiContent darkGrey'>

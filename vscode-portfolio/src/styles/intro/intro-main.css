@@ -90,7 +90,10 @@
 /* General styling */
 .parallaxBackground {
   padding: 0;
-  margin: 0;
+  width: 85% !important;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 30px;
 }
 
 .contentDiv {
@@ -124,7 +127,7 @@
 
 /* Intro */
 .introTab {
-  background-color: var(--color-black);
+  background-color: var(--color-accent-yellow);
   height: 100%;
   width: calc(100% - 35px);
 }
@@ -188,6 +191,10 @@
   text-align: center;
 }
 /* UXUI */
+.uxuiSection {
+  background-color: white;
+
+}
 .uxuiContent {
   display: flex;
   flex-direction: column;
