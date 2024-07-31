@@ -92,7 +92,7 @@ function IntroTab() {
       <div className='introUxui introSection slideUp'>
         <img src={rightWire} className='uxuiRightWire'></img>
         <div className='uxuiContent'>
-          <h2>UX-UI</h2>
+          <h2>UX-UI / Accessibility</h2>
           {BinaryLine('black', 'white')}
           <p>Giving users a modern site with intuitive design is a must</p>
         </div>

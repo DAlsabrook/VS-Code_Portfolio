@@ -159,14 +159,19 @@
 }
 
 .introRightWire{
-  width: 200px;
-  height: 165px;
+  width: 30%;
+  height: 30%;
+  max-width: 200px;
+  max-height: 160;
   rotate: -45deg;
-  padding-top: 70px;
+  padding-top: 40px;
 }
 
 .introBothWire {
-  width: 150px;
+  width: 20%;
+  height: 20%;
+  max-width: 150px;
+  max-height: 150;
   transform: scaleY(-1);
   rotate: -45deg;
 }
