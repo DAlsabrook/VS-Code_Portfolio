@@ -1,5 +1,4 @@
-import React, { useRef, useEffect } from 'react'; // Added useEffect to the import
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import React, { useEffect } from 'react';
 
 // Images
 import laptop from '../../images/intro/laptop-mockup.png';
@@ -10,6 +9,21 @@ import bothWire from '../../images/intro/bothWire.png';
 import laptopWire from '../../images/intro/laptopWire.png';
 import cellWire from '../../images/intro/cellWire.png';
 
+// Logos
+// Design
+import logoFigma from '../../images/intro/logo_figma.png';
+import logoSketch from '../../images/intro/logo_sketch.png';
+import logoIllistrator from '../../images/intro/logo_illistrator.png';
+import logoPhotoShop from '../../images/intro/logo_photoshop.png';
+
+// uxui
+import logoBootstrap from '../../images/intro/logo_bootstrap.png';
+import logoCss from '../../images/intro/logo_css.png';
+import logoHtml from '../../images/intro/logo_html.png';
+import logoJavaScript from '../../images/intro/logo_javascript.png';
+
+// backend
+// Node.js Python SQL NoSQL
 function IntroTab() {
   useEffect(() => {
     function checkAndStartAnimations() {
@@ -48,8 +62,10 @@ function IntroTab() {
     <div className="introTab">
       {/* Intro */}
       <div className='introHero'>
-        <img src={leftWire} className='introLeftWire'></img>
-        <img src={bothWire} className='introBothWire'></img>
+        <div className='introImgContainer'>
+          <img src={rightWire} className='introRightWire'></img>
+          <img src={bothWire} className='introBothWire'></img>
+        </div>
         <div className='heroContent'>
           <img src={headshot} className='headshotImg slideDown'></img>
           <h1 className='name slideUp'>My name is David Alsabrook</h1>
@@ -60,9 +76,16 @@ function IntroTab() {
 
       {/* VSCode */}
       <div className='introVscode introSection slideUp' style={{ color: 'white' }}>
-        <h2>Design</h2>
-        <p>It is critical to take someone else's design and make a pixel perfect version</p>
+        <h2>Design Implementation</h2>
         {BinaryLine('white', 'var(--color-background-dark)')}
+        <p>It is critical to take someone else's design and make a pixel perfect version</p>
+        <div className='techDiv'>
+          <img src={logoFigma} className='techLogo'></img>
+          <img src={logoIllistrator} className='techLogo'></img>
+          <img src={logoSketch} className='techLogo'></img>
+          <img src={logoPhotoShop} className='techLogo'></img>
+        </div>
+
       </div>
 
       {/* UXUI */}
@@ -70,9 +93,15 @@ function IntroTab() {
         <img src={rightWire} className='uxuiRightWire'></img>
         <div className='uxuiContent'>
           <h2>UX-UI</h2>
+          {BinaryLine('black', 'white')}
           <p>Giving users a modern site with intuitive design is a must</p>
         </div>
-        {BinaryLine('black', 'white')}
+        <div className='techDiv'>
+          <img src={logoHtml} className='techLogo invert'></img>
+          <img src={logoCss} className='techLogo invert'></img>
+          <img src={logoJavaScript} className='techLogo invert'></img>
+          <img src={logoBootstrap} className='techLogo'></img>
+        </div>
       </div>
 
       {/* Back-end */}
@@ -80,9 +109,9 @@ function IntroTab() {
         <img src={leftWire} className='backendLeftWire'></img>
         <div className='backEndContent' style={{ color: 'white' }}>
           <h2>Back end</h2>
+          {BinaryLine('white', 'var(--color-background-dark)')}
           <p>Seamlessly integrating a database makes site much more usefull</p>
         </div>
-        <img src={laptop} style={{ width: '100vw', opacity: "100%" }} />
       </div>
     </div>
   );
