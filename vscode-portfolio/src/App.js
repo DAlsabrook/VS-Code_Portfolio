@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Outlet, Route, Routes, NavLink } from 'react-router-dom';
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // compenents
 import IntroTab from './components/intro/main.js';
